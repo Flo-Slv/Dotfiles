@@ -294,6 +294,10 @@ endif
 nmap <leader>gs :G<CR>
 
 
+" FZF-CHECKOUT
+nnoremap <leader>gb :GBranches<CR>
+
+
 " HTML & CSS
 autocmd FileType html,css EmmetInstall
 au BufNewFile *.html 0r ~/Flo/Dotfiles/vim/.vim/html.skel | let IndentStyle = "html"
