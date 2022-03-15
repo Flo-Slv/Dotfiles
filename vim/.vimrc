@@ -1,8 +1,11 @@
+" #######################
 " ## VIM CONFIGURATION ##
 " #######################
 " #######################
 
 " by Flo Slv
+
+" ~/Flo/Dotfiles/vim/.vimrc
 
 
 " Remove compatibility with VI.
