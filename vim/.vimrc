@@ -181,6 +181,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'kshenoy/vim-signature'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mbbill/undotree'
+Plug 'stsewd/fzf-checkout.vim'
 
 Plug 'valloric/youcompleteme'
 " cd ~/.vim/plugged/youcompleteme
