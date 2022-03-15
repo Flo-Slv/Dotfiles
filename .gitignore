@@ -1,0 +1,10 @@
+tmux/.tmux/plugins/*
+
+vim/backup
+vim/swap
+vim/undo
+vim/.vim/plugged
+vim/.vim/autoload
+vim/.viminfo
+
+zsh/.oh-my-zsh
