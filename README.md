@@ -26,6 +26,7 @@
 - [html.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vim/html.skel)
 - [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vim/css.skel)
 - [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/vim8.2-install.md) VIM 8.2 from sources on Ubuntu 20.04 LTS
+- [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim)
 <br>
 
 ### Explanations
