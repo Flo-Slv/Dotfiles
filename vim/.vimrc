@@ -133,9 +133,7 @@ let &runtimepath.=','.rtp.',~/Flo/Dotfiles/vim/.vim/after'
 set viminfo+=n~/Flo/Dotfiles/vim/.viminfo
 
 set directory=~/Flo/Dotfiles/vim/swap//,.,~/tmp,/var/tmp,/tmp
-
 set backupdir=~/Flo/Dotfiles/vim/backup//,.,~/tmp,~/
-
 set undodir=~/Flo/Dotfiles/vim/undo//,.
 
 
