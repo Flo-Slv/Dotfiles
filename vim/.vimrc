@@ -1,42 +1,24 @@
 " #######################
 " ## VIM CONFIGURATION ##
 " #######################
-" #######################
 
 " by Flo Slv
 
 " ~/Flo/Dotfiles/vim/.vimrc
 
 
-" Remove compatibility with VI.
-set nocompatible
+" ##################
+" # BASIC COMMANDS #
+" ##################
 
-" Set leader key as the space bar.
-let mapleader = ' '
+" REMOVE COMPATIBILITY WITH VI
+set nocompatible
 
 " SYNTAX HIGHLIGHTING
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
-
-" SHORTCUTS
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap ' ''<left>
-inoremap " ""<left>
-inoremap { {}<left>
-inoremap < <><left>
-
-" TO NOT USE ARROWS
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " DISPLAY
 set title
@@ -66,11 +48,6 @@ set smartindent
 set list lcs=tab:\|\ " Show tab indent with |
 "set foldmethod=indent
 
-" TABS
-map <leader>tc :tabclose<CR>
-nnoremap H gT
-nnoremap L gt
-
 " SEARCH
 set ignorecase
 set smartcase
@@ -87,6 +64,37 @@ set wildignore=*.o,*.r,*.so,*.sl
 " REMOVE BEEP
 set visualbell
 set noerrorbells
+
+
+" ###########
+" # MAPPING #
+" ###########
+
+" SET LEADER KEY AS THE SPACE BAR
+let mapleader = ' '
+
+" SHORTCUTS
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap { {}<left>
+inoremap < <><left>
+
+" TO NOT USE ARROWS
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+" TABS
+map <leader>tc :tabclose<CR>
+nnoremap H gT
+nnoremap L gt
 
 " COPY FROM CURSOR TO END OF LINE
 nnoremap Y y$
@@ -117,16 +125,20 @@ nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 
 
-" Custom folder for vim config.
-" Purpose is to not be at ~/
+" ################
+" # CUSTOM PATHS #
+" ################
+
+" CUSTOM FOLDER FOR VIM CONFIG
+" PURPOSE IS TO NOT BE AT $HOME
 let rtp=&runtimepath
 set runtimepath=~/Flo/Dotfiles/vim/.vim
 let &runtimepath.=','.rtp.',~/Flo/Dotfiles/vim/.vim/after'
 
-" .viminfo path
+" PATH TO .viminfo
 set viminfo+=n~/Flo/Dotfiles/vim/.viminfo
 
-" Folders for .swp files and backup & undo.
+" FOLDERS FOR .swp FILES AND BACKUP & UNDO
 set directory=~/Flo/Dotfiles/vim/swap//,.,~/tmp,/var/tmp,/tmp
 set backupdir=~/Flo/Dotfiles/vim/backup//,.,~/tmp,~/
 set undodir=~/Flo/Dotfiles/vim/undo//,.
@@ -136,14 +148,14 @@ set undodir=~/Flo/Dotfiles/vim/undo//,.
 " # VIM-PLUG #
 " ############
 
-" Automatic installation
+" AUTOMATIC INSTALLATION
 let data_dir = '~/Flo/Dotfiles/vim/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
     silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins
+" PLUGINS
 call plug#begin()
 
 Plug 'drewtempelmeyer/palenight.vim'
@@ -181,7 +193,7 @@ call plug#end()
 " # PLUGINS CONFIG #
 " ##################
 
-" PALENIGHT theme
+" PALENIGHT THEME
 set background=dark
 colorscheme palenight
 if (has("termguicolors"))
@@ -260,7 +272,7 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :History<CR>
 
 
-" Undotree
+" UNDOTREE
 nnoremap <leader>d :UndotreeToggle<CR>
 
 if has("persistent_undo")
@@ -275,6 +287,10 @@ if has("persistent_undo")
 	let &undodir=target_path
 	set undofile
 endif
+
+
+" VIM-FUGITIVE
+nmap <leader>gs :G<CR>
 
 
 " HTML & CSS
