@@ -4,7 +4,6 @@
 
 # by Flo Slv
 
-
 # ~/Flo/Dotfiles/tmux/.tmux/tmux-powerline-custom-themes/flo-theme.sh
 
 
