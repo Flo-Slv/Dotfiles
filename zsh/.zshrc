@@ -8,8 +8,7 @@
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/Flo/Dotfiles/zsh/.oh-my-zsh"
 
-ZSH_THEME="ys-flo"
-# ZSH_THEME="ys"
+ZSH_THEME="ys"
 
 plugins=(git command-not-found node thefuck zsh-navigation-tools)
 
@@ -41,6 +40,7 @@ alias tmk="tmux kill-session -t"
 
 # Git aliases
 alias gs="git status"
+alias ga="git add"
 alias gc="git commit -m"
 alias gpo="git pull origin"
 
