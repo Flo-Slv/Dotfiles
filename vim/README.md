@@ -27,7 +27,7 @@ ls -lAh
 $ .vimrc .vim
 ```
 
-### 2. Change `.zshrc` to add `.vimrc` path.
+### 2. Change `.zshrc` to add the new `.vimrc` path.
 ```sh
 cd ~
 
@@ -101,6 +101,12 @@ cd ~/Flo/Dotfiles/vim
 
 vim .vimrc
 
+" Plugins
+call plug#begin()
+<ADD YOUR PLUGINS HERE>
+call plug#end()
+
+" Then enter this two lines.
 :so %
 :PlugInstall
 ```
