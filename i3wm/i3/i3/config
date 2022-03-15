@@ -4,6 +4,8 @@
 
 # by Flo Slv
 
+# ~/.config/i3/config
+
 
 # Windows key as default mod.
 set $mod Mod4
