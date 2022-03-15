@@ -35,9 +35,11 @@ sudo apt install stow
 
 # Specify the target with -t parameter.
 # Example with the i3 directory:
+cd ~/Flo/Dotfiles
 stow -t ~/.config i3
 
 # "Unstow" with -D parameter.
+cd ~/Flo/Dotfiles
 stow -t ~/.config -D i3
 ```
 <br>
