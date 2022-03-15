@@ -76,6 +76,10 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Path to .vimrc
 export VIMINIT="source ~/Flo/Dotfiles/vim/.vimrc"
 
+# Set VIM as default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 
 # fzf configuration.
 export FZF_DEFAULT_OPTS='--height 40%'
