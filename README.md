@@ -30,7 +30,7 @@
 
 ### Explanations
 - *VIM* installed in `~/Flo/Dotfiles`.<br>
-Check my `.vimrc` and `.zshrc` to see how I deal to install VIM in custom folder and not in `$HOME`.
+Check [VIM README](https://github.com/Flo-Slv/Dotfiles/tree/master/vim) to see how I deal to install VIM in custom folder and not in `$HOME`.
 <br>
 
 - *TMUX* installed in `~/Flo/Dotfiles`.<br>
