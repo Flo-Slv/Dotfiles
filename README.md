@@ -1,5 +1,31 @@
 # My personal dotfiles
 
+### Purpose
+The idea is to keep all my dotfiles in the same folder.<br>
+In this way, I can easily manage it with git / github to install it in a new computer.<br><br>
+
+Moreover, I don't really like how Linux organize all dotfiles and app installation. If you look into your `$HOME` folder, some of them are in `~/.config` directory, others in their own folder, and others like `.vimrc` in the `$HOME` directly.<br><br>
+
+When I open my terminal, I just want a clean space with folders like `Downloads`, `Dotfiles`, `Wallpapers`, `Dev` and so on !<br><br>
+
+I use **Ubuntu 20.04 LTS** as an operating system.<br>
+I use **i3** as a window manager.<br>
+I use **TMUX** as a terminal multiplexer.<br>
+I use **VIM** as an editor.<br><br>
+
+My workflow is pretty basic and I tend to not use my mouse. Even in Brave or Firefox thanks to the Vimium extension !
+<br><br>
+
+So, in the end, I created a simple folder called `Flo` in my `$HOME`.<br>
+Inside it, there is my `Dotfiles` directory and folders I use every day. Everything is clean and my mind is in peace xD<br><br>
+
+To deal with that and keep my dotfiles in the same folder, I used a mixed between `stow`, which is a symlink manager, and some tricks for VIM and TMUX to changes their folders from `$HOME` to my custom one.<br><br>
+
+Next step is to create an installation script to automate this process.<br><br>
+
+---
+<br>
+
 ### i3
 - [config](https://github.com/Flo-Slv/Dotfiles/blob/master/i3wm/i3/i3/config) => i3
 - [config.ini](https://github.com/Flo-Slv/Dotfiles/blob/master/i3wm/i3/polybar/config.ini) => Polybar
@@ -29,21 +55,7 @@
 - [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim)
 <br>
 
-### Explanations
-- *VIM* installed in `~/Flo/Dotfiles`.<br>
-Check [VIM README](https://github.com/Flo-Slv/Dotfiles/tree/master/vim) to see how I deal to install VIM in custom folder and not in `$HOME`.
-<br>
-
-- *TMUX* installed in `~/Flo/Dotfiles`.<br>
-Check my `.tmux.conf` and `.zshrc` to see how I deal to install TMUX in custom folder and not in `$HOME`.
-<br>
-
-- *i3* installed in `~/Flo/Dotfiles/i3wm/i3/i3`.<br>
-I used `stow` to simulate installation in `~/.config/i3`.
-<br>
-
-- *ZSH* (with *oh-my-zsh*) installed in `~/Flo/Dotfiles/zsh`.<br>
-I used `stow` to simulate installation in `~/.zshrc` and `~/.oh-my-zsh`.
+---
 <br>
 
 ### How to deal with stow
@@ -57,7 +69,7 @@ cd ~/Flo/Dotfiles/i3wm/i3
 stow -t ~/.config i3
 
 # "Unstow" with -D parameter.
-cd ~/Flo/Dotfiles
+cd ~/Flo/Dotfiles/i3wm/i3
 stow -t ~/.config -D i3
 ```
 <br>
@@ -65,7 +77,10 @@ stow -t ~/.config -D i3
 ### Some cool commands that can help !
 ```sh
 # To know shell we use (2 options)
+# First option
 echo $SHELL
+
+# Second option
 ls -l /proc/$$/exe
 
 # To know terminal we use
