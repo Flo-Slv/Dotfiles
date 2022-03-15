@@ -8,7 +8,6 @@
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/Flo/Dotfiles/zsh/.oh-my-zsh"
 
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="ys-flo"
 # ZSH_THEME="ys"
 
@@ -24,6 +23,10 @@ unalias "...."
 unalias "....."
 unalias "......"
 
+
+# Change directory aliases
+alias d="cd ~/Flo"
+alias dev="cd ~/Flo/Dev"
 
 # List aliases
 alias la="ls -lAh"
@@ -77,5 +80,5 @@ export FZF_DEFAULT_OPTS='--height 40%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# Open terminal to my personal folder.
-cd ~/Flo
+# When terminal is opening for the first time, go to my personal folder.
+cd /home/floslv/Flo
