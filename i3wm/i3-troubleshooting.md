@@ -31,3 +31,5 @@ Then, add these lines to your i3 `config` file.
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 ```
+
+Then restart your session.
