@@ -28,6 +28,23 @@
 - [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/vim8.2-install.md) VIM 8.2 from sources on Ubuntu 20.04 LTS
 <br>
 
+### Explanations
+- *VIM* installed in `~/Flo/Dotfiles`.<br>
+Check my `.vimrc` and `.zshrc` to see how I deal to install VIM in custom folder and not in `$HOME`.
+<br>
+
+- *TMUX* installed in `~/Flo/Dotfiles`.<br>
+Check my `.tmux.conf` and `.zshrc` to see how I deal to install TMUX in custom folder and not in `$HOME`.
+<br>
+
+- *i3* installed in `~/Flo/Dotfiles/i3wm/i3/i3`.<br>
+I used `stow` to simulate installation in `~/.config/i3`.
+<br>
+
+- *ZSH* (with *oh-my-zsh*) installed in `~/Flo/Dotfiles/zsh`.<br>
+I used `stow` to simulate installation in `~/.zshrc` and `~/.oh-my-zsh`.
+<br>
+
 ### How to deal with stow
 ```sh
 # First of all, install stow xD
@@ -35,7 +52,7 @@ sudo apt install stow
 
 # Specify the target with -t parameter.
 # Example with the i3 directory:
-cd ~/Flo/Dotfiles
+cd ~/Flo/Dotfiles/i3wm/i3
 stow -t ~/.config i3
 
 # "Unstow" with -D parameter.
