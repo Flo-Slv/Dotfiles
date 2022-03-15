@@ -4,6 +4,8 @@
 
 # by Flo Slv
 
+# ~/.zshrc
+
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/Flo/Dotfiles/zsh/.oh-my-zsh"

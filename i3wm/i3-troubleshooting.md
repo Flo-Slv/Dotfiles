@@ -20,7 +20,7 @@ Then restart your session. TADA !
 <br><br><br>
 
 ### Enable keys for brightness
-You may not have be abble to change brightness with fn+F5/fn+F6.
+You may not have be abble to change brightness with fn+F5 / fn+F6.
 You can fix it with `brightnessctl`.
 ```sh
 sudo apt install brightnessctl
@@ -31,3 +31,5 @@ Then, add these lines to your i3 `config` file.
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 ```
+
+Then restart your session.

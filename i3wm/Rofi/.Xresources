@@ -4,6 +4,9 @@
 
 ! by Flo Slv
 
+! ~/.Xresources
+
+
 ! If changes, do not forget to relaunch Rofi with:
 ! xrdb .Xresources
 
