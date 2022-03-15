@@ -117,14 +117,16 @@ nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 
 
-" Custom folder Dotfiles for vim config.
+" Custom folder for vim config.
 " Purpose is to not be at ~/
 let rtp=&runtimepath
 set runtimepath=~/Flo/Dotfiles/vim/.vim
 let &runtimepath.=','.rtp.',~/Flo/Dotfiles/vim/.vim/after'
 
+" .viminfo path
 set viminfo+=n~/Flo/Dotfiles/vim/.viminfo
 
+" Folders for .swp files and backup & undo.
 set directory=~/Flo/Dotfiles/vim/swap//,.,~/tmp,/var/tmp,/tmp
 set backupdir=~/Flo/Dotfiles/vim/backup//,.,~/tmp,~/
 set undodir=~/Flo/Dotfiles/vim/undo//,.
@@ -166,6 +168,7 @@ Plug 'gelguy/wilder.nvim'
 Plug 'psliwka/vim-smoothie'
 Plug 'kshenoy/vim-signature'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'mbbill/undotree'
 
 Plug 'valloric/youcompleteme'
 " cd ~/.vim/plugged/youcompleteme
@@ -255,6 +258,23 @@ endfunction
 nnoremap <silent> <C-p> :FZF<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :History<CR>
+
+
+" Undotree
+nnoremap <leader>d :UndotreeToggle<CR>
+
+if has("persistent_undo")
+	let target_path = expand('~/Flo/Dotfiles/vim/undo')
+
+	" If the location does not exist,
+	" create the directory and any parent directories.
+	if !isdirectory(target_path)
+		call mkdir(target_path, "p", 0700)
+	endif
+
+	let &undodir=target_path
+	set undofile
+endif
 
 
 " HTML & CSS
