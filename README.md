@@ -37,6 +37,7 @@ Next step is to create an installation script to automate this process.<br><br>
 
 ### SHELL
 - [.zshrc](https://github.com/Flo-Slv/Dotfiles/blob/master/zsh/.zshrc)
+- [.zshenv](https://github.com/Flo-Slv/Dotfiles/blob/master/zsh/.zshenv)
 - [omz-aliases](https://github.com/Flo-Slv/Dotfiles/blob/master/zsh/omz-aliases) => list of all aliases created by oh-my-zsh and plugins
 - [Install](https://github.com/Flo-Slv/Dotfiles/tree/master/zsh) oh-my-zsh
 <br>
