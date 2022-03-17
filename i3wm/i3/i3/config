@@ -167,6 +167,7 @@ bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # When opening one of the following app, go directly to the workspace.
 assign [class="Gnome-terminal"] $ws1
 for_window [class="Gnome-terminal"] focus
+for_window [class="Gnome-terminal"] fullscreen enable
 
 assign [class="Brave-browser"] $ws2
 for_window [class="Brave-browser"] focus
@@ -176,6 +177,7 @@ for_window [class="Org.gnome.Nautilus"] focus
 
 assign [class="notion-snap"] $ws4
 for_window [class="notion-snap"] focus
+for_window [class="notion-snap"] fullscreen enable
 
 # At startup, launch apps.
 exec --no-startup-id feh --bg-scale ~/Flo/Wallpapers/vim-wp2.jpg
@@ -195,6 +197,6 @@ gaps inner 10
 # Launch Polybar instead of i3-status-bar.
 exec_always --no-startup-id "killall polybar; polybar -r flo-slv"
 
-# To bind keys for change brightness.
+# Bind keys to change brightness.
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
