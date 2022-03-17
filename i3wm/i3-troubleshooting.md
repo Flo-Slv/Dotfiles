@@ -20,7 +20,7 @@ Then restart your session. TADA !
 <br><br><br>
 
 ### Enable keys for brightness
-You may not have be abble to change brightness with fn+F5 / fn+F6.
+If you use an Asus computer, you may not have be abble to change brightness with fn+F5 / fn+F6.
 You can fix it with `brightnessctl`.
 ```sh
 sudo apt install brightnessctl
@@ -31,5 +31,34 @@ Then, add these lines to your i3 `config` file.
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 ```
+As brightnessctl require to be launch with root privileges, you need to add
+yourself in the 'video' group. Indeed, brightnessctl require write permissions and allow only users of 'video' group as specified [here](https://github.com/Hummer12007/brightnessctl/blob/master/README.md#permissions).
+```sh
+# Create a group called video (if not exist)
+sudo groupadd video
 
-Then restart your session.
+# Add yourself (in my case user is floslv) to video group
+usermod -a -G video floslv
+```
+Autorize 'video' group to launch brightnessctl with no password.
+```sh
+# Modify /etc/sudoers file to be edited with vim and not nano by default.
+sudo visudo /etc/sudoers
+
+# At top of /etc/sudoers file, enter this line and save/close
+# To save and close with nano, it should be: ctrl+x then y then enter
+Defaults editor=/usr/bin/vim
+
+# Go to /etc/sudoers.d/ and create a new file called sudoers.
+# Indeed, it's recommended to not edit /etc/sudoers directly.
+cd /etc/sudoers.d
+
+sudo visudo sudoers
+
+# Add the following lines.
+Defaults editor=/usr/bin/vim
+
+%floslv ALL=NOPASSWD:/usr/bin/brightnessctl
+```
+
+Then restart your computer.
