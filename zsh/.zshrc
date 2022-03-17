@@ -25,6 +25,8 @@ unalias "....."
 unalias "......"
 
 
+alias c="clear"
+
 # Change directory aliases
 alias d="cd ~/Flo"
 alias dev="cd ~/Flo/Dev"
