@@ -27,20 +27,20 @@ sudo apt install brightnessctl
 ```
 Then, add these lines to your i3 `config` file.
 ```sh
-# To bind keys for change brightness.
+# Bind keys to change brightness.
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 ```
 As brightnessctl require to be launch with root privileges, you need to add
 yourself in the 'video' group. Indeed, brightnessctl require write permissions and allow only users of 'video' group as specified [here](https://github.com/Hummer12007/brightnessctl/blob/master/README.md#permissions).
 ```sh
-# Create a group called video (if not exist)
+# Create a group called 'video' (if not exist)
 sudo groupadd video
 
-# Add yourself (in my case user is floslv) to video group
+# Add yourself (in my case, user is floslv) to 'video' group
 usermod -a -G video floslv
 ```
-Autorize 'video' group to launch brightnessctl with no password.
+Autorize yourself (here, floslv) to launch brightnessctl with no password.
 ```sh
 # Modify /etc/sudoers file to be edited with vim and not nano by default.
 sudo visudo /etc/sudoers
