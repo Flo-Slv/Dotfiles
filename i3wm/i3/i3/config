@@ -39,8 +39,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# Start a terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -165,9 +165,9 @@ bindsym $mod+r mode "resize"
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
 # When opening one of the following app, go directly to the workspace.
-assign [class="Gnome-terminal"] $ws1
-for_window [class="Gnome-terminal"] focus
-for_window [class="Gnome-terminal"] fullscreen enable
+assign [class="kitty"] $ws1
+for_window [class="kitty"] focus
+for_window [class="kitty"] fullscreen enable
 
 assign [class="Brave-browser"] $ws2
 for_window [class="Brave-browser"] focus
@@ -182,7 +182,7 @@ for_window [class="notion-snap"] fullscreen enable
 # At startup, launch apps.
 exec --no-startup-id feh --bg-scale ~/Flo/Wallpapers/vim-wp2.jpg
 exec --no-startup-id compton
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id kitty
 exec --no-startup-id brave
 exec --no-startup-id nautilus
 exec --no-startup-id notion-snap
