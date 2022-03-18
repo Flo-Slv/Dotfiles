@@ -72,6 +72,9 @@ alias xg="xprop | grep WM_CLASS"
 # If UBUNTU SOFTWARE does not load anymore.
 alias ubuntu-software="killall snap-store"
 
+# To add Github key to SSH agent.
+alias ss="ssh-add ~/.ssh/id_ed25519"
+
 
 # Thefuck
 eval $(thefuck --alias)
@@ -100,7 +103,7 @@ export FZF_DEFAULT_OPTS='--height 40%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# Every time I open a new terminal
+# Every time I open a new terminal.
 # 1st: open Tmux with 2 windows called Terminal and Code.
 # Terminal have two panes and Code open vim .
 # Focus on first pane of Terminal.
@@ -111,8 +114,5 @@ tmux has-session -t Flo || \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
 
-# 2nd: add github key to SSH agent
-ssh-add ~/.ssh/id_ed25519
-
-# 3rd: go to Flo directory instead of $HOME.
+# 2nd: go to Flo directory instead of $HOME.
 cd /home/floslv/Flo
