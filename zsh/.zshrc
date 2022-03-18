@@ -72,8 +72,11 @@ alias xg="xprop | grep WM_CLASS"
 # If UBUNTU SOFTWARE does not load anymore.
 alias ubuntu-software="killall snap-store"
 
-# To add Github key to SSH agent.
+# Add Github key to SSH agent.
 alias ss="ssh-add ~/.ssh/id_ed25519"
+
+# Launch gitui app.
+alias ui="gitui"
 
 
 # Thefuck
