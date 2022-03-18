@@ -12,7 +12,15 @@ export ZSH="$HOME/Flo/Dotfiles/zsh/.oh-my-zsh"
 
 ZSH_THEME="ys"
 
-plugins=(git command-not-found node thefuck zsh-navigation-tools)
+plugins=(
+	git
+	command-not-found
+	node
+	thefuck
+	zsh-navigation-tools
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
