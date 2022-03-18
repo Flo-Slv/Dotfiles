@@ -4,7 +4,7 @@
 The idea is to keep all my dotfiles in the same folder.<br>
 In this way, I can easily manage it with git / github to install it in a new computer.<br><br>
 
-Moreover, I don't really like how Linux organize all dotfiles and app installation. If you look into your `$HOME` folder, some of them are in `~/.config` directory, others in their own folder, and others like `.vimrc` in the `$HOME` directly.<br><br>
+Moreover, I don't really like how Linux organize all dotfiles and apps installation. If you look into your `$HOME` folder, some of them are in `~/.config` directory, others in their own folder, and others like `.vimrc` in the `$HOME` directly.<br><br>
 
 When I open my terminal, I just want a clean space with folders like `Downloads`, `Dotfiles`, `Wallpapers`, `Dev` and so on !<br><br>
 
