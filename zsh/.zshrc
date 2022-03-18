@@ -25,6 +25,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
+# Add ctrl+space to autocomplete in prompt.
+bindkey '^ ' autosuggest-accept
+
+
 # Remove all unnecessary aliases created by oh-my-zsh
 unalias ${(k)aliases}
 unalias "..."
@@ -107,5 +111,8 @@ tmux has-session -t Flo || \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
 
-# 2nd: go to Flo directory instead of $HOME.
+# 2nd: add github key to SSH agent
+ssh-add ~/.ssh/id_ed25519
+
+# 3rd: go to Flo directory instead of $HOME.
 cd /home/floslv/Flo
