@@ -14,7 +14,7 @@
 " REMOVE COMPATIBILITY WITH VI
 set nocompatible
 
-" SYNTAX HIGHLIGHTING
+"SYNTAX HIGHLIGHTING
 syntax on
 filetype on
 filetype plugin on
