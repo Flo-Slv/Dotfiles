@@ -10,7 +10,8 @@
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/Flo/Dotfiles/zsh/.oh-my-zsh"
 
-ZSH_THEME="ys"
+ZSH_THEME="ys-flo"
+# ZSH_THEME="ys"
 
 plugins=(
 	git

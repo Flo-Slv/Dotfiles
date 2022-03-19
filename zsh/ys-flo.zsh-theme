@@ -1,0 +1,1 @@
+/home/floslv/Flo/Dotfiles/zsh/.oh-my-zsh/custom/themes/ys-flo.zsh-theme
