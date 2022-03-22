@@ -92,7 +92,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 " BUFFERS
-nmap <leader>db :bdelete<CR>
+nmap <leader>bd :bdelete<CR>
 
 " TABS
 nmap <leader>tc :tabclose<CR>
@@ -272,9 +272,10 @@ endfunction
 
 " FZF
 nnoremap <silent> <C-p> :FZF<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :History<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fg :GFiles<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>bo :Buffers<CR>
 
 
 " UNDOTREE
