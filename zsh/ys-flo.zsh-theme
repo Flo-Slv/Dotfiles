@@ -82,7 +82,7 @@ PROMPT="${FG[237]}\${(l.\$(afmagic_dashes)..-.)}%{$reset_color%}\
  %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$reset_color%}@ \
-%{$fg[green]%}%m \
+%{$fg[green]%}%M \
 %{$reset_color%}in \
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
