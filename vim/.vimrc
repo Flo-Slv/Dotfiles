@@ -73,6 +73,12 @@ set noerrorbells
 " SET LEADER KEY AS THE SPACE BAR
 let mapleader = ' '
 
+" SET TAB TO ESC
+inoremap kj <esc>
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+
 " SHORTCUTS
 inoremap ( ()<left>
 inoremap [ []<left>
