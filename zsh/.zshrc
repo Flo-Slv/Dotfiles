@@ -40,13 +40,17 @@ unalias "......"
 
 alias c="clear"
 
+
 # Change directory aliases
 alias d="cd ~/Flo"
 alias dev="cd ~/Flo/Dev"
+alias dot="cd ~/Flo/Dotfiles"
+
 
 # List aliases
 alias la="ls -lAh"
 alias ls="ls --color=tty"
+
 
 # TMUX aliases
 alias tm="tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s"
@@ -55,11 +59,13 @@ alias tman="tmux attach-session -t"
 alias tmls="tmux ls"
 alias tmk="tmux kill-session -t"
 
+
 # Git aliases
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 alias gpo="git pull origin"
+
 
 # fzf aliases
 alias ff="fzf"
@@ -67,14 +73,18 @@ alias ffc"=fzf --preview 'batcat --style=numbers --color=always --line-range :50
 alias ft="fzf-tmux"
 alias ftt="fzf-tmux -p"
 
+
 # Find the name of WM_CLASS to set in i3 config file.
 alias xg="xprop | grep WM_CLASS"
+
 
 # If UBUNTU SOFTWARE does not load anymore.
 alias ubuntu-software="killall snap-store"
 
+
 # Add Github key to SSH agent.
 alias ss="ssh-add ~/.ssh/id_ed25519"
+
 
 # Launch gitui app.
 alias ui="gitui"
@@ -108,6 +118,7 @@ export FZF_DEFAULT_OPTS='--height 40%'
 
 
 # Every time I open a new terminal.
+
 # 1st: open Tmux with 2 windows called Terminal and Code.
 # Terminal have two panes and Code open vim .
 # Focus on first pane of Terminal.
