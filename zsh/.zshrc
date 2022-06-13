@@ -112,6 +112,10 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 
+# Add directory to the PATH
+export PATH="/home/floslv/.local/bin:$PATH"
+
+
 # fzf configuration.
 export FZF_DEFAULT_OPTS='--height 40%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
