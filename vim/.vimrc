@@ -79,7 +79,7 @@ inoremap [ []<left>
 inoremap ' ''<left>
 inoremap " ""<left>
 inoremap { {}<left>
-inoremap < <><left>
+" inoremap < <><left>
 
 " TO NOT USE ARROWS
 map <up> <nop>
