@@ -39,6 +39,7 @@ unalias "......"
 
 
 alias c="clear"
+alias n="nvim"
 
 
 # Change directory aliases
@@ -105,10 +106,12 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 
 # Path to .vimrc
-export VIMINIT="source ~/Flo/Dotfiles/vim/.vimrc"
+# export VIMINIT="source ~/Flo/Dotfiles/vim/.vimrc"
+export VIMINIT="source ~/Flo/Dotfiles/nvim/init.vim"
 
 # Set VIM as default editor
-export VISUAL=vim
+# export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 
@@ -121,21 +124,32 @@ export FZF_DEFAULT_OPTS='--height 40%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 # Every time I open a new terminal.
 
 # 1st: open Tmux with 2 windows called Terminal and Code.
-# Terminal have two panes and Code open vim .
+# Terminal have two panes and Code open vim or neovim.
 # Focus on first pane of Terminal.
+
+# tmux has-session -t Flo || \
+# 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
+# 	split-window -h \; \
+# 	new-window -n Code vim \; \
+# 	select-window -t 1 \; \
+# 	select-pane -t 1 \;
+
 tmux has-session -t Flo || \
 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
 	split-window -h \; \
-	new-window -n Code vim \; \
+	new-window -n Code nvim \; \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
 
 # 2nd: go to Flo directory instead of $HOME.
 cd /home/floslv/Flo
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

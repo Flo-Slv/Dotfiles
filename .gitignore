@@ -6,5 +6,10 @@ vim/undo
 vim/.vim/plugged
 vim/.vim/autoload
 vim/.viminfo
+vim/.viminfo.*
+
+nvim/undodir
+nvim/.vim/plugged
+nvim/.vim/autoload
 
 zsh/.oh-my-zsh
