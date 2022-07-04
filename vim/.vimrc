@@ -303,6 +303,10 @@ nmap <leader>gs :G<CR>
 nnoremap <leader>gb :GBranches<CR>
 
 
+" YOUCOMPLETEME
+" autocmd FileType javascript nmap <buffer> <C-]> :YcmCompleter GoTo<CR>
+
+
 " HTML & CSS
 autocmd FileType html,css EmmetInstall
 au BufNewFile *.html 0r ~/Flo/Dotfiles/vim/.vim/html.skel | let IndentStyle = "html"
@@ -323,5 +327,5 @@ endfunction
 
 augroup FLO_SLV
 	autocmd!
-	autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+	autocmd BufWritePre * :call TrimWhitespace()
