@@ -197,6 +197,58 @@ let g:lightline = {
 \}
 
 
+" DASBOARD
+lua << EOF
+local db = require("dashboard")
+db.custom_header = {
+  \'     ████               ████       ',
+  \'    ███                   ███      ',
+  \'   ███                     ███     ',
+  \'  ███                       ███    ',
+  \' ███                         ███   ',
+  \'████                         ████  ',
+  \'████                         ████  ',
+  \'██████       ███████       ██████  ',
+  \'█████████████████████████████████  ',
+  \' ███████████████████████████████   ',
+  \'  ████ ███████████████████ ████    ',
+  \'       ███▀███████████▀███         ',
+  \'      ████──▀███████▀──████        ',
+  \'      █████───█████───█████        ',
+  \'       ███████████████████         ',
+  \'        █████████████████          ',
+  \'         ███████████████           ',
+  \'          █████████████            ',
+  \'           ███████████             ',
+  \'          ███──▀▀▀──███            ',
+  \'          ███─█████─███            ',
+  \'           ███─███─███             ',
+  \'            █████████              ',
+\ ' ',
+\ ' ',
+\ ' '
+}
+db.custom_center = {
+	{
+		icon = '  ',
+		desc = 'Find file',
+		action = 'Telescope find_files find_command=rg,--hidden,--files'
+	},
+	{
+		desc = 'Create new file',
+		action = 'DashboardNewFile'
+	}
+}
+db.custom_footer = {
+	' ',
+	' ',
+	'Welcome back Flo !',
+	' ',
+	os.date("%d/%m/%Y %H:%M")
+}
+EOF
+
+
 " NVIM-TREE
 lua << EOF
 require("nvim-tree").setup({
@@ -223,7 +275,7 @@ nnoremap <C-f> :NvimTreeFindFile<cr>
 
 
 " TELESCOPE
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
