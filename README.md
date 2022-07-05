@@ -11,7 +11,7 @@ When I open my terminal, I just want a clean space with folders like `Downloads`
 I use **Ubuntu 20.04 LTS** as an operating system.<br>
 I use **i3** as a window manager.<br>
 I use **TMUX** as a terminal multiplexer.<br>
-I use **VIM** as an editor.<br><br>
+I use **NEOjVIM** as an editor.<br><br>
 
 My workflow is pretty basic and I tend to not use my mouse. Even in Brave or Firefox thanks to the Vimium extension !
 <br><br>
@@ -55,6 +55,10 @@ Next step is to create an installation script to automate this process.<br><br>
 - [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vim/css.skel)
 - [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/vim8.2-install.md) VIM 8.2 from sources on Ubuntu 20.04 LTS
 - [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim)
+<br>
+
+### NEOVIM
+- [init.vim](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.vim)
 <br>
 
 ---
