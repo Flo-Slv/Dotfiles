@@ -155,15 +155,14 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 Plug 'ThePrimeagen/harpoon'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'AndrewRadev/tagalong.vim'
-Plug 'ap/vim-css-color'
 
 Plug 'gelguy/wilder.nvim'
 
@@ -272,6 +271,24 @@ EOF
 
 nnoremap <C-a> :NvimTreeToggle<cr>
 nnoremap <C-f> :NvimTreeFindFile<cr>
+
+
+" NVIM-TREESITTER
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true
+	}
+}
+EOF
 
 
 " TELESCOPE
