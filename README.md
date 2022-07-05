@@ -11,7 +11,7 @@ When I open my terminal, I just want a clean space with folders like `Downloads`
 I use **Ubuntu 20.04 LTS** as an operating system.<br>
 I use **i3** as a window manager.<br>
 I use **TMUX** as a terminal multiplexer.<br>
-I use **NEOjVIM** as an editor.<br><br>
+I use **NEOVIM** as an editor.<br><br>
 
 My workflow is pretty basic and I tend to not use my mouse. Even in Brave or Firefox thanks to the Vimium extension !
 <br><br>
