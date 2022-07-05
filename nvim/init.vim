@@ -37,6 +37,8 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set signcolumn=yes
 set cmdheight=2
+
+" SAVING
 set noswapfile
 set nobackup
 set undodir='~/Flo/Dotfiles/nvim/undodir'
@@ -60,6 +62,7 @@ set undolevels=200
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore=*.o,*.r,*.so,*.sl
+set completeopt=menu,menuone,noselect
 
 " REMOVE BEEP
 set visualbell
@@ -144,15 +147,10 @@ call plug#begin('~/Flo/Dotfiles/nvim/.vim/plugged')
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-Plug 'itchyny/lightline.vim'
-
-Plug 'kyazdani42/nvim-tree.lua'
-
 Plug 'glepnir/dashboard-nvim'
-
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'gelguy/wilder.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -160,11 +158,23 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 
 Plug 'ThePrimeagen/harpoon'
 
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'AndrewRadev/tagalong.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
-Plug 'gelguy/wilder.nvim'
+Plug 'AndrewRadev/tagalong.vim'
 
 Plug 'gcmt/taboo.vim'
 Plug 'kshenoy/vim-signature'
@@ -248,6 +258,38 @@ db.custom_footer = {
 EOF
 
 
+" WILDER
+autocmd VimEnter * ++once call s:wilder_init()
+
+function! s:wilder_init() abort
+	call wilder#setup({'modes': [':', '/', '?']})
+
+	call wilder#set_option('pipeline', [
+				\   wilder#branch(
+				\     wilder#cmdline_pipeline({
+				\       'language': 'vim',
+				\       'fuzzy': 1,
+				\       'fuzzy_filter': wilder#vim_fuzzy_filter(),
+				\     }),
+				\     wilder#search_pipeline(),
+				\   ),
+				\ ])
+
+	call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+				\ 'highlighter': wilder#basic_highlighter(),
+				\ 'min_width': '40%',
+				\ 'max_height': '20%',
+				\ 'reverse': 0,
+				\ 'left': [
+					\   ' ', wilder#popupmenu_devicons(),
+					\ ],
+					\ 'right': [
+						\   ' ', wilder#popupmenu_scrollbar(),
+						\ ],
+						\ })))
+endfunction
+
+
 " NVIM-TREE
 lua << EOF
 require("nvim-tree").setup({
@@ -303,36 +345,89 @@ nnoremap <leader>af :lua require("harpoon.mark").add_file()<cr>
 nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 
-" WILDER
-autocmd VimEnter * ++once call s:wilder_init()
+" NVIM-LSPCONFIG
+lua << EOF
+require'lspconfig'.tsserver.setup{}
+EOF
 
-function! s:wilder_init() abort
-    call wilder#setup({'modes': [':', '/', '?']})
 
-    call wilder#set_option('pipeline', [
-	\   wilder#branch(
-	\     wilder#cmdline_pipeline({
-	\       'language': 'vim',
-	\       'fuzzy': 1,
-	\       'fuzzy_filter': wilder#vim_fuzzy_filter(),
-	\     }),
-	\     wilder#search_pipeline(),
-	\   ),
-	\ ])
+" NVIM-CMP
+lua << EOF
+-- To make Tab working.
+local has_words_before = function()
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
-    call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-	\ 'highlighter': wilder#basic_highlighter(),
-	\ 'min_width': '40%',
-	\ 'max_height': '20%',
-	\ 'reverse': 0,
-	\ 'left': [
-		\   ' ', wilder#popupmenu_devicons(),
-	\ ],
-	\ 'right': [
-		\   ' ', wilder#popupmenu_scrollbar(),
-	\ ],
-	\ })))
-endfunction
+local feedkey = function(key, mode)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
+-- Start configuration
+local cmp = require'cmp'
+
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+		end
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif vim.fn["vsnip#available"](1) == 1 then
+				feedkey("<Plug>(vsnip-expand-or-jump)", "")
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-prev)", "")
+			end
+		end, { "i", "s" })
+	}),
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered()
+	},
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'vsnip' } -- For vsnip users.
+	}, {
+		{ name = 'buffer' }
+	}),
+	enabled = function()
+		-- disable completion in comments
+		local context = require 'cmp.config.context'
+		-- keep command mode completion enabled when cursor is in a comment
+		if vim.api.nvim_get_mode().mode == 'c' then
+			return true
+		else
+			return not context.in_treesitter_capture("comment")
+			and not context.in_syntax_group("Comment")
+		end
+	end
+})
+
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+ require('lspconfig')['tsserver'].setup {
+	capabilities = capabilities
+}
+EOF
 
 
 " UNDOTREE
