@@ -1,5 +1,13 @@
 # My VIM story
 
+## UPDATE: 4th July 2022
+I decided to switch to Neovim since Vim 9 arrived !
+<br>
+Lua is more powerful than vimscript and so much faster.
+
+<br><br>
+
+## but, this is my VIM story
 I needed last version of VIM, which is the 8.2 (February 2022), and build this version with python3.
 
 Python3 is required to run some plugins.
