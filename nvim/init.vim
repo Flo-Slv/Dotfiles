@@ -313,6 +313,7 @@ EOF
 
 nnoremap <C-a> :NvimTreeToggle<cr>
 nnoremap <C-f> :NvimTreeFindFile<cr>
+nnoremap <C-g> :NvimTreeRefresh<cr>
 
 
 " NVIM-TREESITTER
