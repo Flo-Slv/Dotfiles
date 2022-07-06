@@ -131,25 +131,13 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Every time I open a new terminal.
-
-# 1st: open Tmux with 2 windows called Terminal and Code.
-# Terminal have two panes and Code open vim or neovim.
-# Focus on first pane of Terminal.
-
-# tmux has-session -t Flo || \
-# 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
-# 	split-window -h \; \
-# 	new-window -n Code vim \; \
-# 	select-window -t 1 \; \
-# 	select-pane -t 1 \;
+# Open Tmux with 2 windows called TERMINAL and NEOVIM.
+# TERMINAL have two panes and NEOVIM open neovim.
+# Focus on first pane of TERMINAL.
 
 tmux has-session -t Flo || \
-	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
-	split-window -h \; \
-	new-window -n Code nvim \; \
+	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n TERMINAL \; \
+	split-window -c ~/Flo -h \; \
+	new-window -c ~/Flo/Dev -n NEOVIM nvim \; \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
-
-# 2nd: go to Flo directory instead of $HOME.
-cd /home/floslv/Flo
-
