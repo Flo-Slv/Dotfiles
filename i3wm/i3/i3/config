@@ -88,7 +88,7 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Brave"
 set $ws3 "3: Insomnia"
-set $ws4 "4: Brave"
+set $ws4 "4: Files"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -171,9 +171,9 @@ for_window [class="kitty"] fullscreen enable
 assign [class="Brave-browser"] $ws2
 for_window [class="Brave-browser"] focus
 
-assign [class="insomnia"] $ws3
-for_window [class="insomnia"] focus
-for_window [class="insomnia"] fullscreen enable
+assign [class="Insomnia"] $ws3
+for_window [class="Insomnia"] focus
+for_window [class="Insomnia"] fullscreen enable
 
 assign [class="Org.gnome.Nautilus"] $ws4
 for_window [class="Org.gnome.Nautilus"] focus
@@ -188,7 +188,7 @@ exec --no-startup-id compton
 exec --no-startup-id kitty
 exec --no-startup-id brave
 exec --no-startup-id nautilus
-# exec --no-startup-id insomnia
+exec --no-startup-id insomnia
 # exec --no-startup-id notion-snap
 
 # I3 Gaps
