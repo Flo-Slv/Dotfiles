@@ -87,8 +87,8 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal"
 set $ws2 "2: Brave"
-set $ws3 "3: Files"
-set $ws4 "4: Insomnia"
+set $ws3 "3: Insomnia"
+set $ws4 "4:"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -171,12 +171,12 @@ for_window [class="kitty"] fullscreen enable
 assign [class="Brave-browser"] $ws2
 for_window [class="Brave-browser"] focus
 
-assign [class="Org.gnome.Nautilus"] $ws3
-for_window [class="Org.gnome.Nautilus"] focus
-
-assign [class="insomnia"] $ws4
+assign [class="insomnia"] $ws3
 for_window [class="insomnia"] focus
 for_window [class="insomnia"] fullscreen enable
+
+# assign [class="Org.gnome.Nautilus"] $ws4
+# for_window [class="Org.gnome.Nautilus"] focus
 
 # assign [class="notion-snap"] $ws4
 # for_window [class="notion-snap"] focus
