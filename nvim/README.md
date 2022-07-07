@@ -8,17 +8,22 @@ For Graphql:
 ```npm install -g graphql-language-service-cli```
 <br />
 
+For CSS:
+```npm i -g vscode-langservers-extracted```
+<br />
+
 In init.vim:
 <br />
 with lua.heredoc: <i>lua << EOF {...} EOF</i>
 ```
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.graphql.setup{}
+require'lspconfig'.cssls.setup{}
 
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_clients_capabilities())
 
-local servers = { 'tsserver', 'graphql' }
+local servers = { 'tsserver', 'graphql', 'cssls' }
 
 for _, server in ipairs(servers) do
   lspcongig[server].setup {
