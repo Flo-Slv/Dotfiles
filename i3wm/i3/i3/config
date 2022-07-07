@@ -187,7 +187,7 @@ exec --no-startup-id feh --bg-scale ~/Flo/Wallpapers/vim-wp2.jpg
 exec --no-startup-id compton
 exec --no-startup-id kitty
 exec --no-startup-id brave
-exec --no-startup-id nautilus
+# exec --no-startup-id nautilus
 exec --no-startup-id insomnia
 # exec --no-startup-id notion-snap
 
