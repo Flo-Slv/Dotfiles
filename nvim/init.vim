@@ -94,9 +94,6 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-" BUFFERS
-nmap <leader>bd :bdelete<CR>
-
 " TABS
 nmap <leader>tc :tabclose<CR>
 nnoremap H gT
