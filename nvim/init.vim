@@ -348,6 +348,9 @@ nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
 " NVIM-LSPCONFIG
 lua << EOF
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.graphql.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.html.setup{}
 EOF
 
 
@@ -421,12 +424,16 @@ cmp.setup({
 })
 
 -- Setup lspconfig.
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
- require('lspconfig')['tsserver'].setup {
-	capabilities = capabilities
-}
+local servers = { 'tsserver', 'graphql', 'cssls', 'html' }
+
+for _, server in ipairs(servers) do
+	lspconfig[server].setup {
+		capabilities = capabilities
+	}
+end
 EOF
 
 
