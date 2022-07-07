@@ -88,7 +88,7 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Brave"
 set $ws3 "3: Files"
-set $ws4 "4: Notion"
+set $ws4 "4: Insomnia"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -177,7 +177,6 @@ for_window [class="Org.gnome.Nautilus"] focus
 assign [class="insomnia"] $ws4
 for_window [class="insomnia"] focus
 for_window [class="insomnia"] fullscreen enable
-
 
 # assign [class="notion-snap"] $ws4
 # for_window [class="notion-snap"] focus
