@@ -88,7 +88,7 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Brave"
 set $ws3 "3: Insomnia"
-set $ws4 "4:"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
