@@ -120,7 +120,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -175,9 +174,14 @@ for_window [class="Brave-browser"] focus
 assign [class="Org.gnome.Nautilus"] $ws3
 for_window [class="Org.gnome.Nautilus"] focus
 
-assign [class="notion-snap"] $ws4
-for_window [class="notion-snap"] focus
-for_window [class="notion-snap"] fullscreen enable
+assign [class="insomnia"] $ws4
+for_window [class="insomnia"] focus
+for_window [class="insomnia"] fullscreen enable
+
+
+# assign [class="notion-snap"] $ws4
+# for_window [class="notion-snap"] focus
+# for_window [class="notion-snap"] fullscreen enable
 
 # At startup, launch apps.
 exec --no-startup-id feh --bg-scale ~/Flo/Wallpapers/vim-wp2.jpg
@@ -185,7 +189,8 @@ exec --no-startup-id compton
 exec --no-startup-id kitty
 exec --no-startup-id brave
 exec --no-startup-id nautilus
-exec --no-startup-id notion-snap
+exec --no-startup-id insomnia
+# exec --no-startup-id notion-snap
 
 # I3 Gaps
 for_window [class="^.*"] border pixel 2
