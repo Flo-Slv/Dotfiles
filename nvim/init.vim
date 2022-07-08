@@ -353,6 +353,8 @@ require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 EOF
 
+nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
+
 
 " NVIM-CMP
 lua << EOF
@@ -438,7 +440,7 @@ EOF
 
 
 " UNDOTREE
-nnoremap <leader>d :UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 if has("persistent_undo")
 	let target_path = expand('~/Flo/Dotfiles/nvim/undodir')
