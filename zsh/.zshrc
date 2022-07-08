@@ -75,6 +75,13 @@ alias ft="fzf-tmux"
 alias ftt="fzf-tmux -p"
 
 
+# MongoDB
+alias ms="sudo systemctl start mongod"
+alias mi="sudo systemctl status mongod"
+alias md="sudo systemctl stop mongod"
+alias mr="sudo systemctl restart mongod"
+
+
 # Find the name of WM_CLASS to set in i3 config file.
 alias xg="xprop | grep WM_CLASS"
 
