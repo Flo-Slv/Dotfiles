@@ -170,7 +170,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+
 Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'AndrewRadev/tagalong.vim'
 
@@ -455,6 +457,20 @@ endif
 " VIM-FUGITIVE
 nmap <leader>gs :G<CR>
 
+
+" VIM-DADBOD
+" First, launch mongoDB in terminal w/ alias 'ms' or sudo systemctl start mongod
+" Connect to mongoDB: :DB mongodb+srv://<user>:<password>@flo.j1cmj.mongodb.net/<dbName>?retryWrites=true&w=majority
+
+
+" VIM-DADBOD-UI
+nnoremap <leader>mo :DBUIToggle<cr>
+let g:db_ui_table_helpers = {
+\   'mongodb+srv': {
+	\     'List': '{table}.find()'
+\   }
+\ }
+let g:db_ui_auto_execute_table_helpers = 1
 
 " #############
 " # FUNCTIONS #
