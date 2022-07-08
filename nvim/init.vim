@@ -1,4 +1,3 @@
-" ##########################
 " ## NEOVIM CONFIGURATION ##
 " #########################
 
@@ -126,6 +125,20 @@ inoremap <C-j> <esc>:m .+1<CR>==
 inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
+
+
+" ################
+" # CUSTOM PATHS #
+" ################
+
+" CUSTOM FOLDER FOR NVIM CONFIG
+" PURPOSE IS TO NOT BE AT $HOME
+let rtp=&runtimepath
+set runtimepath=~/Flo/Dotfiles/nvim/.vim
+let &runtimepath.=','.rtp.',~/Flo/Dotfiles/nvim/.vim/after'
+
+" PATH TO .viminfo
+set viminfo+=n~/Flo/Dotfiles/nvim/.viminfo
 
 
 " ############
@@ -265,28 +278,28 @@ function! s:wilder_init() abort
 	call wilder#setup({'modes': [':', '/', '?']})
 
 	call wilder#set_option('pipeline', [
-				\   wilder#branch(
-				\     wilder#cmdline_pipeline({
-				\       'language': 'vim',
-				\       'fuzzy': 1,
-				\       'fuzzy_filter': wilder#vim_fuzzy_filter(),
-				\     }),
-				\     wilder#search_pipeline(),
-				\   ),
-				\ ])
+		\   wilder#branch(
+		\     wilder#cmdline_pipeline({
+		\       'language': 'vim',
+		\       'fuzzy': 1,
+		\       'fuzzy_filter': wilder#vim_fuzzy_filter(),
+		\     }),
+		\     wilder#search_pipeline(),
+		\   ),
+		\ ])
 
 	call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-				\ 'highlighter': wilder#basic_highlighter(),
-				\ 'min_width': '40%',
-				\ 'max_height': '20%',
-				\ 'reverse': 0,
-				\ 'left': [
-					\   ' ', wilder#popupmenu_devicons(),
-					\ ],
-					\ 'right': [
-						\   ' ', wilder#popupmenu_scrollbar(),
-						\ ],
-						\ })))
+		\ 'highlighter': wilder#basic_highlighter(),
+		\ 'min_width': '40%',
+		\ 'max_height': '20%',
+		\ 'reverse': 0,
+		\ 'left': [
+		\   ' ', wilder#popupmenu_devicons(),
+		\ ],
+		\ 'right': [
+		\   ' ', wilder#popupmenu_scrollbar(),
+		\ ],
+	\ })))
 endfunction
 
 
@@ -341,9 +354,7 @@ nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fs <cmd>Telescope live_grep<cr>
 nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<cr>
 
-lua << EOF
-require('telescope').load_extension('fzf')
-EOF
+lua require('lua/flo-telescope')
 
 
 " HARPOON
