@@ -339,6 +339,10 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 
+lua << EOF
+require('telescope').load_extension('fzf')
+EOF
+
 
 " HARPOON
 nnoremap <leader>af :lua require("harpoon.mark").add_file()<cr>
@@ -475,6 +479,7 @@ let g:db_ui_table_helpers = {
 let g:db_ui_auto_execute_table_helpers = 1
 let g:db_ui_save_location = '~/Flo/Dotfiles/nvim/.vim/db'
 let g:db_ui_win_position = 'right'
+
 
 " #############
 " # FUNCTIONS #
