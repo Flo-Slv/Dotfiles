@@ -180,6 +180,8 @@ Plug 'hrsh7th/vim-vsnip'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -355,6 +357,12 @@ nnoremap <leader>fs <cmd>Telescope live_grep<cr>
 nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<cr>
 
 lua << EOF
+require('telescope').setup {
+	defaults = {
+		prompt_prefix = "🔍 "
+	}
+}
+
 require('telescope').load_extension('fzf')
 EOF
 
