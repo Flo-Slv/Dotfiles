@@ -12,5 +12,6 @@ nvim/undodir
 nvim/.vim/plugged
 nvim/.vim/autoload
 nvim/.vim/db
+nvim/.viminfo
 
 zsh/.oh-my-zsh
