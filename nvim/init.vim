@@ -381,6 +381,7 @@ require'lspconfig'.html.setup{}
 EOF
 
 nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
+nnoremap K :lua vim.lsp.buf.hover()
 
 
 " NVIM-CMP
