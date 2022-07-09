@@ -177,11 +177,11 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
-" Plug 'hrsh7th/cmp-vsnip'
-" Plug 'hrsh7th/vim-vsnip'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind.nvim'
+
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -343,8 +343,8 @@ require'nvim-tree'.setup({
 })
 EOF
 
-nnoremap <C-a> :NvimTreeToggle<cr>
-nnoremap <C-f> :NvimTreeFindFile<cr>
+nnoremap <C-a> :NvimTreeToggle<CR>
+nnoremap <C-f> :NvimTreeFindFile<CR>
 
 
 " ###################
@@ -372,14 +372,14 @@ EOF
 " # TELESCOPE #
 " #############
 
-nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fg <cmd>Telescope git_files<cr>
-nnoremap <leader>fs <cmd>Telescope live_grep<cr>
-nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<cr>
-nnoremap <leader>fl <cmd>Telescope lsp_references<cr>
-nnoremap <leader>fk <cmd>Telescope keymaps<cr>
+nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--hidden,--files<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <leader>fg <cmd>Telescope git_files<CR>
+nnoremap <leader>fs <cmd>Telescope live_grep<CR>
+nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<CR>
+nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
+nnoremap <leader>fk <cmd>Telescope keymaps<CR>
 
 lua << EOF
 require'telescope'.setup {
@@ -396,8 +396,8 @@ EOF
 " # HARPOON #
 " ###########
 
-nnoremap <leader>af :lua require'harpoon.mark'.add_file()<cr>
-nnoremap <leader>aa :lua require'harpoon.ui'.toggle_quick_menu()<cr>
+nnoremap <leader>af :lua require'harpoon.mark'.add_file()<CR>
+nnoremap <leader>aa :lua require'harpoon.ui'.toggle_quick_menu()<CR>
 
 
 " #############
@@ -417,8 +417,8 @@ require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 EOF
 
-nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
-nnoremap K :lua vim.lsp.buf.hover()<cr>
+nnoremap <leader>df :lua vim.lsp.buf.definition()<CR>
+nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 
 " ############
@@ -426,24 +426,12 @@ nnoremap K :lua vim.lsp.buf.hover()<cr>
 " ############
 
 lua << EOF
--- To make Tab working.
-local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-end
-
-local feedkey = function(key, mode)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
--- Start configuration
 local cmp = require'cmp'
 local lspkind = require'lspkind'
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
---			vim.fn["vsnip#anonymous"](args.body)
 			require'luasnip'.lsp_expand(args.body)
 		end
 	},
@@ -452,25 +440,9 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
-		['<Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
---			elseif vim.fn['vsnip#available'](1) == 1 then
---				feedkey('<Plug>(vsnip-expand-or-jump)', '')
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
-		['<S-Tab>'] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
---			elseif vim.fn['vsnip#jumpable'](-1) == 1 then
---				feedkey('<Plug>(vsnip-jump-prev)', '')
-			end
-		end, { 'i', 's' })
+		['<C-i>'] = cmp.mapping.select_next_item(),
+		['<C-p'] = cmp.mapping.select_prev_item(),
+		['<CR>'] = cmp.mapping.confirm({ select = true })
 	}),
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -481,7 +453,6 @@ cmp.setup({
 		{ name = 'nvim_lsp', keyword_length=3 },
 		{ name = 'path' },
 		{ name = 'luasnip' }
---		{ name = 'vsnip' }
 	}, {
 		{ name = 'buffer', keyword_length=3 }
 	}),
@@ -522,6 +493,27 @@ for _, server in ipairs(servers) do
 	}
 end
 EOF
+
+
+" ###########
+" # LUASNIP #
+" ###########
+
+lua << EOF
+require'luasnip.loaders.from_vscode'.lazy_load()
+local ls = require'luasnip'
+
+ls.config.set_config {
+	history = true,
+	updateevents = 'TextChanged,TextChangedI'
+}
+EOF
+
+imap <silent><expr> <C-y> luasnip#expand_or_jumpable() ? '<Plug>luasnip-jump-next' : '<C-y>'
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<CR>
+
+snoremap <silent> <C-y> <cmd>lua require('luasnip').jump(1)<CR>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<CR>
 
 
 " ############
@@ -572,7 +564,7 @@ EOF
 " # VIM-DADBOD-UI #
 " #################
 
-nnoremap <leader>mo :DBUIToggle<cr>
+nnoremap <leader>mo :DBUIToggle<CR>
 let g:db_ui_table_helpers = {
 \   'mongodb+srv': {
 	\     'List': '{table}.find()'
