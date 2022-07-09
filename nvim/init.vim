@@ -373,6 +373,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fs <cmd>Telescope live_grep<cr>
 nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<cr>
+nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
 
 lua << EOF
 require('telescope').setup {
@@ -411,7 +412,6 @@ require'lspconfig'.html.setup{}
 EOF
 
 nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
-nnoremap <leader>dj :lua vim.lsp.buf.implementation()<cr>
 nnoremap K :lua vim.lsp.buf.hover()<cr>
 
 
