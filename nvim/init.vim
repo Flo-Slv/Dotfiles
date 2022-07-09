@@ -1,5 +1,6 @@
+" ##########################
 " ## NEOVIM CONFIGURATION ##
-" #########################
+" ##########################
 
 " by Flo Slv
 
@@ -10,7 +11,7 @@
 " # BASIC COMMANDS #
 " ##################
 
-"SYNTAX HIGHLIGHTING
+" SYNTAX HIGHLIGHTING
 syntax on
 filetype on
 filetype plugin on
@@ -157,8 +158,8 @@ call plug#begin('~/Flo/Dotfiles/nvim/.vim/plugged')
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-Plug 'glepnir/dashboard-nvim'
 Plug 'itchyny/lightline.vim'
+Plug 'glepnir/dashboard-nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'gelguy/wilder.nvim'
 
@@ -199,16 +200,18 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 
-" ##################
-" # PLUGINS CONFIG #
-" ##################
+" ####################
+" # TOKYONIGHT THEME #
+" ####################
 
-" TOKYONIGHT THEME
 set background=dark
 colorscheme tokyonight
 
 
-" LIGHTLINE
+" #############
+" # LIGHTLINE #
+" #############
+
 let g:lightline = {
 	\'colorscheme': 'tokyonight',
 	\'active': {
@@ -221,7 +224,10 @@ let g:lightline = {
 \}
 
 
-" DASBOARD
+" ############
+" # DASBOARD #
+" ############
+
 lua << EOF
 local db = require("dashboard")
 db.custom_header = {
@@ -273,7 +279,10 @@ db.custom_footer = {
 EOF
 
 
-" WILDER
+" ##########
+" # WILDER #
+" ##########
+
 autocmd VimEnter * ++once call s:wilder_init()
 
 function! s:wilder_init() abort
@@ -305,7 +314,10 @@ function! s:wilder_init() abort
 endfunction
 
 
-" NVIM-TREE
+" #############
+" # NVIM-TREE #
+" #############
+
 lua << EOF
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -330,7 +342,10 @@ nnoremap <C-a> :NvimTreeToggle<cr>
 nnoremap <C-f> :NvimTreeFindFile<cr>
 
 
-" NVIM-TREESITTER
+" ###################
+" # NVIM-TREESITTER #
+" ###################
+
 lua << EOF
 require'nvim-treesitter.configs'.setup {
 	highlight = {
@@ -348,7 +363,10 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 
-" TELESCOPE
+" #############
+" # TELESCOPE #
+" #############
+
 nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -367,12 +385,18 @@ require('telescope').load_extension('fzf')
 EOF
 
 
-" HARPOON
+" ###########
+" # HARPOON #
+" ###########
+
 nnoremap <leader>af :lua require("harpoon.mark").add_file()<cr>
 nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 
-" NVIM-LSPCONFIG
+" #############
+" # LSPCONFIG #
+" #############
+
 lua << EOF
 -- Add border to 'hover'
 local lsp = vim.lsp
@@ -391,7 +415,10 @@ nnoremap <leader>dj :lua vim.lsp.buf.implementation()<cr>
 nnoremap K :lua vim.lsp.buf.hover()<cr>
 
 
-" NVIM-CMP
+" ############
+" # NVIM-CMP #
+" ############
+
 lua << EOF
 -- To make Tab working.
 local has_words_before = function()
@@ -474,7 +501,10 @@ end
 EOF
 
 
-" UNDOTREE
+" ############
+" # UNDOTREE #
+" ############
+
 nnoremap <leader>u :UndotreeToggle<CR>
 
 if has("persistent_undo")
@@ -491,16 +521,25 @@ if has("persistent_undo")
 endif
 
 
-" VIM-FUGITIVE
+" ################
+" # VIM-FUGITIVE #
+" ################
+
 nmap <leader>gs :G<CR>
 
 
-" VIM-DADBOD
+" ##############
+" # VIM-DADBOD #
+" ##############
+
 " First, launch mongoDB in terminal w/ alias 'ms' or sudo systemctl start mongod
 " Connect to mongoDB: :DB mongodb+srv://<user>:<password>@flo.j1cmj.mongodb.net/<dbName>?retryWrites=true&w=majority
 
 
-" VIM-DADBOD-UI
+" #################
+" # VIM-DADBOD-UI #
+" #################
+
 nnoremap <leader>mo :DBUIToggle<cr>
 let g:db_ui_table_helpers = {
 \   'mongodb+srv': {
@@ -512,9 +551,9 @@ let g:db_ui_save_location = '~/Flo/Dotfiles/nvim/.vim/db'
 let g:db_ui_win_position = 'right'
 
 
-" #############
-" # FUNCTIONS #
-" #############
+" ####################
+" # CUSTOM FUNCTIONS #
+" ####################
 
 " Every time I save a file, TrimWhitespace at end of lines.
 " Thanks The Primeagen for this cool function !
