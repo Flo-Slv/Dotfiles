@@ -374,14 +374,25 @@ nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 " NVIM-LSPCONFIG
 lua << EOF
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+
+--local on_attach = function(client, bufnr)
+--	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+--	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+
+--	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+--end
+
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.graphql.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 EOF
 
-nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
-nnoremap K :lua vim.lsp.buf.hover()
+" nnoremap <leader>df :lua vim.lsp.buf.definition()<cr>
+" nnoremap <leader>dj :lua vim.lsp.buf.implementation()<cr>
+" nnoremap K :lua vim.lsp.buf.hover()<cr>
 
 
 " NVIM-CMP
