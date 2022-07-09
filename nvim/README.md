@@ -1,3 +1,9 @@
+# NEOVIM
+
+## Build Neovim from sources
+https://github.com/neovim/neovim/wiki/Building-Neovim
+<br /><br /><br />
+
 ## LSP config
 
 For Javascript (and React): 
