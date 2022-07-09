@@ -373,8 +373,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fs <cmd>Telescope live_grep<cr>
 nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<cr>
-nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
-nnoremap <leader>fm <cmd>Telescope keymaps<cr>
+nnoremap <leader>fl <cmd>Telescope lsp_references<cr>
+nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 lua << EOF
 require('telescope').setup {
