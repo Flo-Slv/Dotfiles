@@ -188,11 +188,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+
+Plug 'numToStr/Comment.nvim'
 
 Plug 'AndrewRadev/tagalong.vim'
 
@@ -324,7 +325,7 @@ endfunction
 
 lua << EOF
 require'nvim-tree'.setup({
-	sort_by = "case_sensitive",
+	sort_by = 'case_sensitive',
 	view = {
 		adaptive_size = true,
 		mappings = {
@@ -548,6 +549,15 @@ endif
 " ################
 
 nmap <leader>gs :G<CR>
+
+
+" ###########
+" # COMMENT #
+" ###########
+
+lua << EOF
+require'Comment'.setup()
+EOF
 
 
 " ##############
