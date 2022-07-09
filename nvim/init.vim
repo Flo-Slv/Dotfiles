@@ -171,13 +171,17 @@ Plug 'ThePrimeagen/harpoon'
 
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -229,7 +233,7 @@ let g:lightline = {
 " ############
 
 lua << EOF
-local db = require("dashboard")
+local db = require'dashboard'
 db.custom_header = {
   \'     ████               ████       ',
   \'    ███                   ███      ',
@@ -319,13 +323,13 @@ endfunction
 " #############
 
 lua << EOF
-require("nvim-tree").setup({
+require'nvim-tree'.setup({
 	sort_by = "case_sensitive",
 	view = {
 		adaptive_size = true,
 		mappings = {
 			list = {
-				{ key = "u", action = "dir_up" }
+				{ key = 'u', action = 'dir_up' }
 			}
 		}
 	},
@@ -377,13 +381,13 @@ nnoremap <leader>fl <cmd>Telescope lsp_references<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 lua << EOF
-require('telescope').setup {
+require'telescope'.setup {
 	defaults = {
 		prompt_prefix = "🔍 "
 	}
 }
 
-require('telescope').load_extension('fzf')
+require'telescope'.load_extension('fzf')
 EOF
 
 
@@ -391,8 +395,8 @@ EOF
 " # HARPOON #
 " ###########
 
-nnoremap <leader>af :lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>af :lua require'harpoon.mark'.add_file()<cr>
+nnoremap <leader>aa :lua require'harpoon.ui'.toggle_quick_menu()<cr>
 
 
 " #############
@@ -402,8 +406,8 @@ nnoremap <leader>aa :lua require("harpoon.ui").toggle_quick_menu()<cr>
 lua << EOF
 -- Add border to 'hover'
 local lsp = vim.lsp
-lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded"
+lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
+	border = 'rounded'
 })
 
 require'lspconfig'.tsserver.setup{}
@@ -424,7 +428,7 @@ lua << EOF
 -- To make Tab working.
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 local feedkey = function(key, mode)
@@ -433,11 +437,13 @@ end
 
 -- Start configuration
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+--			vim.fn["vsnip#anonymous"](args.body)
+			require'luasnip'.lsp_expand(args.body)
 		end
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -445,52 +451,67 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		["<Tab>"] = cmp.mapping(function(fallback)
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
+--			elseif vim.fn['vsnip#available'](1) == 1 then
+--				feedkey('<Plug>(vsnip-expand-or-jump)', '')
 			elseif has_words_before() then
 				cmp.complete()
 			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+				fallback()
 			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function()
+		end, { 'i', 's' }),
+		['<S-Tab>'] = cmp.mapping(function()
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
+--			elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+--				feedkey('<Plug>(vsnip-jump-prev)', '')
 			end
-		end, { "i", "s" })
+		end, { 'i', 's' })
 	}),
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered()
 	},
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' } -- For vsnip users.
+		{ name = 'nvim_lua' },
+		{ name = 'nvim_lsp', keyword_length=3 },
+		{ name = 'path' },
+		{ name = 'luasnip' }
+--		{ name = 'vsnip' }
 	}, {
-		{ name = 'buffer' }
+		{ name = 'buffer', keyword_length=3 }
 	}),
+	formatting = {
+		format = lspkind.cmp_format {
+			with_text = true,
+			menu = {
+				buffer = '[BUF]',
+				nvim_lsp = '[LSP]',
+				nvim_lua = '[api]',
+				path = '[PATH]',
+				luasnip = '[SNIP]'
+			}
+		}
+	},
 	enabled = function()
 		-- disable completion in comments
-		local context = require 'cmp.config.context'
+		local context = require'cmp.config.context'
 		-- keep command mode completion enabled when cursor is in a comment
 		if vim.api.nvim_get_mode().mode == 'c' then
 			return true
 		else
-			return not context.in_treesitter_capture("comment")
-			and not context.in_syntax_group("Comment")
+			return not context.in_treesitter_capture('comment')
+			and not context.in_syntax_group('Comment')
 		end
 	end
 })
 
 -- Setup lspconfig.
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require'lspconfig'
+local capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = { 'tsserver', 'graphql', 'cssls', 'html' }
 
@@ -508,13 +529,13 @@ EOF
 
 nnoremap <leader>u :UndotreeToggle<CR>
 
-if has("persistent_undo")
+if has('persistent_undo')
 	let target_path = expand('~/Flo/Dotfiles/nvim/undodir')
 
 	" If the location does not exist,
 	" create the directory and any parent directories.
 	if !isdirectory(target_path)
-		call mkdir(target_path, "p", 0700)
+		call mkdir(target_path, 'p', 0700)
 	endif
 
 	let &undodir=target_path
