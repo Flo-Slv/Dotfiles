@@ -23,6 +23,8 @@ To deal with that and keep my dotfiles in the same folder, I used a mixed betwee
 
 Next step is to create an installation script to automate this process.<br><br>
 
+:mag_right:
+
 ---
 <br>
 
