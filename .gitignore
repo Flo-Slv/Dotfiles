@@ -11,6 +11,7 @@ vim/.viminfo.*
 nvim/undodir
 nvim/.vim/plugged
 nvim/.vim/autoload
+nvim/undodir
 nvim/.vim/db
 nvim/.viminfo
 

@@ -274,22 +274,37 @@ db.custom_center = {
 		action = 'Telescope find_files find_command=rg,--hidden,--files'
 	},
 	{
-		icon = '  ',
+		icon = '💻 ',
+		desc = 'Dev',
+		action = 'Telescope find_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=Dev hidden=true'
+	},
+	{
+		icon = '⚙️ ',
 		desc = 'Dotfiles',
 		action = 'Telescope git_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=Dotfiles hidden=true'
 	},
 	{
-		icon = '⏻ ',
+		icon = '📋 ',
 		desc = 'Create new file',
 		action = 'DashboardNewFile'
+	},
+	{
+		icon = '👀 ',
+		desc = 'Keymaps',
+		action = 'Telescope keymaps'
+	},
+	{
+		icon = 'ℹ️ ',
+		desc = 'Help',
+		action = 'Telescope help_tags'
 	}
 }
 db.custom_footer = {
 	' ',
 	' ',
-	'Welcome back Flo !',
+	'Bienvenue Flo !',
 	' ',
-	os.date("%d/%m/%Y %H:%M")
+	os.date("%A %d/%m/%Y %H:%M")
 }
 EOF
 
@@ -382,33 +397,72 @@ EOF
 " # TELESCOPE #
 " #############
 
-nnoremap <leader>ff <cmd>Telescope find_files find_command=rg,--hidden,--files<CR>
+nnoremap <leader>ff <cmd>lua currentDir()<CR>
+nnoremap <leader>flo <cmd>lua flo()<CR>
+nnoremap <leader>dev <cmd>lua dev()<CR>
+nnoremap <leader>dot <cmd>lua dotfiles()<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
-nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <leader>help <cmd>lua help()<CR>
 nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>
-nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<CR>
 nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
-nnoremap <leader>fk <cmd>Telescope keymaps<CR>
-nnoremap <leader>dot <cmd>lua dotfiles()<CR>
+nnoremap <leader>key <cmd>lua keymaps()<CR>
 
 lua << EOF
 require'telescope'.setup {
 	defaults = {
-		prompt_prefix = "🔍 "
+		prompt_prefix = '🔍 ',
+		hidden = true
 	}
 }
+require'telescope'.load_extension('fzf')
 
-function dotfiles()
-	require'telescope.builtin'.git_files {
-		shorten_path = true,
-		cwd = '~/Flo/Dotfiles',
-		prompt_title = 'Dotfiles',
-		hidden = true
+local builtin = require'telescope.builtin'
+local themes = require'telescope.themes'
+
+function currentDir()
+	builtin.find_files {
+		cwd = require'telescope.utils'.buffer_dir(),
+		prompt_title = require'telescope.utils'.buffer_dir()
 	}
 end
 
-require'telescope'.load_extension('fzf')
+function flo()
+	builtin.find_files {
+		cwd = '~/Flo/Dev',
+		shorten_path = true,
+		prompt_title = '🏠 ~/Flo'
+	}
+end
+
+function dev()
+	builtin.find_files {
+		cwd = '~/Flo/Dev',
+		shorten_path = true,
+		prompt_title = '💻 Dev'
+	}
+end
+
+function dotfiles()
+	builtin.git_files(themes.get_dropdown {
+		cwd = '~/Flo/Dotfiles',
+		shorten_path= true,
+		prompt_title = '⚙️ Dotfiles',
+		previewer = false
+	})
+end
+
+function help()
+	builtin.help_tags {
+		prompt_title = "ℹ️ Help"
+	}
+end
+
+function keymaps()
+	builtin.keymaps(themes.get_ivy {
+		prompt_title = '👀 Key maps'
+	})
+end
 EOF
 
 
