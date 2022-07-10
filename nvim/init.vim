@@ -37,7 +37,10 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set signcolumn=yes
 set cmdheight=2
+set noshowmode
 set winbar=%=%m\ %f
+set laststatus=3
+highlight WinSeparator guibg=None
 
 " SAVING
 set noswapfile
@@ -76,14 +79,6 @@ set noerrorbells
 
 " SET LEADER KEY AS THE SPACE BAR
 let mapleader = ' '
-
-" SHORTCUTS
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap ' ''<left>
-inoremap " ""<left>
-inoremap { {}<left>
-" inoremap < <><left>
 
 " TO NOT USE ARROWS
 map <up> <nop>
@@ -190,6 +185,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'windwp/nvim-autopairs'
 
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
@@ -220,10 +216,16 @@ colorscheme tokyonight
 " #############
 
 let g:lightline = {
-	\'colorscheme': 'tokyonight',
+	\'colorscheme': 'PaperColor',
 	\'active': {
-		\'left': [ [ 'mode', 'paste' ],
-		\[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+		\'left': [
+			\[ 'mode', 'paste' ],
+			\[ 'gitbranch', 'readonly', 'filename', 'modified' ]
+		\],
+		\'right': [
+			\['percent'],
+			\['filetype']
+		\]
 	\},
 	\'component_function': {
 		\'gitbranch': 'FugitiveHead'
@@ -573,6 +575,14 @@ endif
 " ################
 
 nmap <leader>gs :G<CR>
+
+
+" ##################
+" # NVIM-AUTOPAIRS #
+" ##################
+lua << EOF
+require'nvim-autopairs'.setup {}
+EOF
 
 
 " ###########
