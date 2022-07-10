@@ -15,7 +15,11 @@ For Graphql:
 <br />
 
 For CSS and HTML:
-```npm i -g vscode-langservers-extracted```
+```npm install -g vscode-langservers-extracted```
+<br />
+
+For Lua:
+https://github.com/sumneko/lua-language-server
 <br />
 
 In init.vim:
