@@ -272,21 +272,47 @@ db.custom_header = {
 \ ' '
 }
 
+local builtin = require'telescope.builtin'
+local themes = require'telescope.themes'
+
 db.custom_center = {
 	{
 		icon = '🔍 ',
 		desc = 'Find file',
-		action = 'Telescope find_files find_command=rg,--hidden,--files prompt_title=☀️_Find_file'
+		action = function()
+			builtin.find_files({
+				cwd = require'telescope.utils'.buffer_dir(),
+				shorten_path = true,
+				prompt_title = '☀️ ' .. require'telescope.utils'.buffer_dir() .. ' ☀️',
+				hidden = true,
+				no_ignore = true
+			})
+		end
 	},
 	{
 		icon = '💻 ',
 		desc = 'Dev',
-		action = 'Telescope find_files shorten_path=true cwd=~/Flo/Dev prompt_title=💻_Dev hidden=true'
+		action = function()
+			builtin.find_files({
+				cwd = '~/Flo/Dev',
+				shorten_path = true,
+				prompt_title = '💻 Dev',
+				hidden = true
+			})
+		end
 	},
 	{
 		icon = '⚙️ ',
 		desc = 'Dotfiles',
-		action = 'Telescope git_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=⚙️_Dotfiles hidden=true previewer=false theme=dropdown'
+		action = function()
+			builtin.git_files(themes.get_dropdown({
+				cwd = '~/Flo/Dotfiles',
+				shorten_path = true,
+				prompt_title = '⚙️ Dotfiles',
+				hidden = true,
+				previewer = false
+			}))
+		end
 	},
 	{
 		icon = '📋 ',
@@ -296,12 +322,20 @@ db.custom_center = {
 	{
 		icon = '👀 ',
 		desc = 'Key maps',
-		action = 'Telescope keymaps theme=ivy prompt_title=👀_Keymaps'
+		action = function()
+			builtin.keymaps(themes.get_ivy({
+				prompt_title = '👀 Key maps'
+			}))
+		end
 	},
 	{
 		icon = 'ℹ️ ',
 		desc = 'Help',
-		action = 'Telescope help_tags prompt_title=ℹ️_Help'
+		action = function()
+			builtin.help_tags({
+				prompt_title = 'ℹ️ Help'
+			})
+		end
 	}
 }
 db.custom_footer = {
@@ -430,8 +464,7 @@ require'telescope'.setup {
 
 				-- insert emoji when picked
 				vim.api.nvim_put({ emoji.value }, 'c', false, true)
-			end,
-			theme = require'telescope.themes'.get_dropdown()
+			end
 		}
 	}
 }
@@ -439,14 +472,19 @@ require'telescope'.load_extension'fzf'
 require'telescope'.load_extension'emoji'
 require'telescope'.load_extension'node_modules'
 require'telescope'.load_extension'neoclip'
+require'neoclip'.setup()
 
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
+function neo()
+
+end
+
 function currentDir()
 	builtin.find_files {
 		cwd = require'telescope.utils'.buffer_dir(),
-		prompt_title = require'telescope.utils'.buffer_dir()
+		prompt_title = '☀️ ' .. require'telescope.utils'.buffer_dir() .. ' ☀️'
 	}
 end
 
