@@ -269,11 +269,17 @@ db.custom_header = {
 }
 db.custom_center = {
 	{
-		icon = '  ',
+		icon = '🔍 ',
 		desc = 'Find file',
 		action = 'Telescope find_files find_command=rg,--hidden,--files'
 	},
 	{
+		icon = '  ',
+		desc = 'Dotfiles',
+		action = 'Telescope git_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=Dotfiles hidden=true'
+	},
+	{
+		icon = '⏻ ',
 		desc = 'Create new file',
 		action = 'DashboardNewFile'
 	}
@@ -384,6 +390,7 @@ nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader>fd <cmd>Telescope find_files find_command=rg,--hidden,--files cwd=~/Flo<CR>
 nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
 nnoremap <leader>fk <cmd>Telescope keymaps<CR>
+nnoremap <leader>dot <cmd>lua dotfiles()<CR>
 
 lua << EOF
 require'telescope'.setup {
@@ -391,6 +398,15 @@ require'telescope'.setup {
 		prompt_prefix = "🔍 "
 	}
 }
+
+function dotfiles()
+	require'telescope.builtin'.git_files {
+		shorten_path = true,
+		cwd = '~/Flo/Dotfiles',
+		prompt_title = 'Dotfiles',
+		hidden = true
+	}
+end
 
 require'telescope'.load_extension('fzf')
 EOF
