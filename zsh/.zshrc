@@ -98,6 +98,10 @@ alias ss="ssh-add ~/.ssh/id_ed25519"
 alias ui="gitui"
 
 
+# LUA-LANGUAGE-SERVER (sumneko_lua)
+alias luamake=/home/floslv/lua-language-server/3rd/luamake/luamake
+
+
 # Thefuck
 eval $(thefuck --alias)
 
