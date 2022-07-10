@@ -411,10 +411,27 @@ lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
 	border = 'rounded'
 })
 
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.graphql.setup{}
-require'lspconfig'.cssls.setup{}
-require'lspconfig'.html.setup{}
+require'lspconfig'.tsserver.setup {}
+require'lspconfig'.graphql.setup {}
+require'lspconfig'.cssls.setup {}
+require'lspconfig'.html.setup {}
+require'lspconfig'.sumneko_lua.setup {
+	settings = {
+		Lua = {
+			runtime = { version = 'LuaJIT' },
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = {'vim'}
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file('', true)
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = { enable = false }
+		}
+	}
+}
 EOF
 
 nnoremap <leader>df :lua vim.lsp.buf.definition()<CR>
@@ -492,6 +509,16 @@ for _, server in ipairs(servers) do
 		capabilities = capabilities
 	}
 end
+
+local sumneko_root_path = os.getenv('HOME') .. '/lua-language-server'
+local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
+
+lspconfig.sumneko_lua.setup {
+	cmd = {
+		sumneko_binary, '-E', sumneko_root_path .. '/main.lua'
+	},
+	capabilities = capabilities
+}
 EOF
 
 
@@ -501,12 +528,15 @@ EOF
 
 lua << EOF
 require'luasnip.loaders.from_vscode'.lazy_load()
+require'luasnip.loaders.from_vscode'.lazy_load({ paths = { './snippets' } })
 local ls = require'luasnip'
 
 ls.config.set_config {
 	history = true,
 	updateevents = 'TextChanged,TextChangedI'
 }
+
+vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/Flo/Dotfiles/nvim/.vim/snippets/flo-snip.lua<CR>')
 EOF
 
 imap <silent><expr> <C-y> luasnip#expand_or_jumpable() ? '<Plug>luasnip-jump-next' : '<C-y>'
