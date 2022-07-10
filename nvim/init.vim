@@ -37,6 +37,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set signcolumn=yes
 set cmdheight=2
+set winbar=%=%m\ %f
 
 " SAVING
 set noswapfile
@@ -201,6 +202,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'kshenoy/vim-signature'
 
 Plug 'mbbill/undotree'
+Plug 'rhysd/committia.vim'
 
 call plug#end()
 
