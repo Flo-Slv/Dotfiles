@@ -162,6 +162,7 @@ Plug 'gelguy/wilder.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'xiyaowong/telescope-emoji.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
@@ -401,21 +402,35 @@ nnoremap <leader>ff <cmd>lua currentDir()<CR>
 nnoremap <leader>flo <cmd>lua flo()<CR>
 nnoremap <leader>dev <cmd>lua dev()<CR>
 nnoremap <leader>dot <cmd>lua dotfiles()<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>help <cmd>lua help()<CR>
+nnoremap <leader>key <cmd>lua keymaps()<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
-nnoremap <leader>key <cmd>lua keymaps()<CR>
+nnoremap <leader>emo <cmd>Telescope emoji<CR>
 
 lua << EOF
 require'telescope'.setup {
 	defaults = {
 		prompt_prefix = '🔍 ',
 		hidden = true
+	},
+	extensions = {
+		emoji = {
+			action = function(emoji)
+				vim.fn.setreg("*", emoji.value)
+				print([[Press p or "*p to paste this emoji]] .. emoji.value)
+
+				-- insert emoji when picked
+				vim.api.nvim_put({ emoji.value }, 'c', false, true)
+			end,
+			theme = require'telescope.themes'.get_dropdown()
+		}
 	}
 }
 require'telescope'.load_extension('fzf')
+require'telescope'.load_extension('emoji')
 
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
