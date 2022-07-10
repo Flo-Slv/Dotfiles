@@ -19,7 +19,6 @@ For CSS and HTML:
 <br />
 
 For Lua:
-<br />
 https://github.com/sumneko/lua-language-server
 <br />
 
