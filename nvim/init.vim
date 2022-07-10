@@ -162,7 +162,10 @@ Plug 'gelguy/wilder.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
 Plug 'xiyaowong/telescope-emoji.nvim'
+Plug 'nvim-telescope/telescope-node-modules.nvim'
+Plug 'AckslD/nvim-neoclip.lua'
 
 Plug 'ThePrimeagen/harpoon'
 
@@ -268,21 +271,22 @@ db.custom_header = {
 \ ' ',
 \ ' '
 }
+
 db.custom_center = {
 	{
 		icon = '🔍 ',
 		desc = 'Find file',
-		action = 'Telescope find_files find_command=rg,--hidden,--files'
+		action = 'Telescope find_files find_command=rg,--hidden,--files prompt_title=☀️_Find_file'
 	},
 	{
 		icon = '💻 ',
 		desc = 'Dev',
-		action = 'Telescope find_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=Dev hidden=true'
+		action = 'Telescope find_files shorten_path=true cwd=~/Flo/Dev prompt_title=💻_Dev hidden=true'
 	},
 	{
 		icon = '⚙️ ',
 		desc = 'Dotfiles',
-		action = 'Telescope git_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=Dotfiles hidden=true'
+		action = 'Telescope git_files shorten_path=true cwd=~/Flo/Dotfiles prompt_title=⚙️_Dotfiles hidden=true previewer=false theme=dropdown'
 	},
 	{
 		icon = '📋 ',
@@ -291,13 +295,13 @@ db.custom_center = {
 	},
 	{
 		icon = '👀 ',
-		desc = 'Keymaps',
-		action = 'Telescope keymaps'
+		desc = 'Key maps',
+		action = 'Telescope keymaps theme=ivy prompt_title=👀_Keymaps'
 	},
 	{
 		icon = 'ℹ️ ',
 		desc = 'Help',
-		action = 'Telescope help_tags'
+		action = 'Telescope help_tags prompt_title=ℹ️_Help'
 	}
 }
 db.custom_footer = {
@@ -409,6 +413,8 @@ nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
 nnoremap <leader>emo <cmd>Telescope emoji<CR>
+nnoremap <leader>node <cmd>Telescope node_modules list<CR>
+nnoremap <leader>fc <cmd>Telescope neoclip<CR>
 
 lua << EOF
 require'telescope'.setup {
@@ -429,8 +435,20 @@ require'telescope'.setup {
 		}
 	}
 }
-require'telescope'.load_extension('fzf')
-require'telescope'.load_extension('emoji')
+require'telescope'.load_extension'fzf'
+require'telescope'.load_extension'emoji'
+require'telescope'.load_extension'node_modules'
+require'telescope'.load_extension'neoclip'
+
+-- use {
+--   'AckslD/nvim-neoclip.lua',
+--   requires = {
+--     { 'nvim-telescope/telescope.nvim' }
+--   },
+--   config = function()
+--     require'neoclip'.setup()
+--   end
+-- }
 
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
@@ -444,7 +462,7 @@ end
 
 function flo()
 	builtin.find_files {
-		cwd = '~/Flo/Dev',
+		cwd = '~/Flo',
 		shorten_path = true,
 		prompt_title = '🏠 ~/Flo'
 	}
