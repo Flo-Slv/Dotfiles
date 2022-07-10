@@ -440,16 +440,6 @@ require'telescope'.load_extension'emoji'
 require'telescope'.load_extension'node_modules'
 require'telescope'.load_extension'neoclip'
 
--- use {
---   'AckslD/nvim-neoclip.lua',
---   requires = {
---     { 'nvim-telescope/telescope.nvim' }
---   },
---   config = function()
---     require'neoclip'.setup()
---   end
--- }
-
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
