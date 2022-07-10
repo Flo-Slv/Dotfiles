@@ -166,6 +166,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'xiyaowong/telescope-emoji.nvim'
 Plug 'nvim-telescope/telescope-node-modules.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
+Plug 'benfowler/telescope-luasnip.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
@@ -471,6 +472,7 @@ require'telescope'.setup {
 require'telescope'.load_extension'fzf'
 require'telescope'.load_extension'emoji'
 require'telescope'.load_extension'node_modules'
+require'telescope'.load_extension'luasnip'
 require'telescope'.load_extension'neoclip'
 require'neoclip'.setup()
 
