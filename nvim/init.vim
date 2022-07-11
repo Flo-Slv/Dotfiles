@@ -284,11 +284,9 @@ db.custom_center = {
 		desc = 'Find file',
 		action = function()
 			builtin.find_files({
-				cwd = require'telescope.utils'.buffer_dir(),
-				shorten_path = true,
-				prompt_title = '☀️ ' .. require'telescope.utils'.buffer_dir() .. ' ☀️',
-				hidden = true,
-				no_ignore = true
+				cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
+				prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
+				hidden = true
 			})
 		end
 	},
@@ -298,7 +296,6 @@ db.custom_center = {
 		action = function()
 			builtin.find_files({
 				cwd = '~/Flo/Dev',
-				shorten_path = true,
 				prompt_title = '💻 Dev',
 				hidden = true
 			})
@@ -310,7 +307,6 @@ db.custom_center = {
 		action = function()
 			builtin.git_files(themes.get_dropdown({
 				cwd = '~/Flo/Dotfiles',
-				shorten_path = true,
 				prompt_title = '⚙️ Dotfiles',
 				hidden = true,
 				previewer = false
@@ -485,32 +481,33 @@ end
 
 function currentDir()
 	builtin.find_files {
-		cwd = require'telescope.utils'.buffer_dir(),
-		prompt_title = '☀️ ' .. vim.fn.expand('%:~:p') .. ' ☀️'
+		prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
+		cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
+		hidden = true
 	}
 end
 
 function flo()
 	builtin.find_files {
 		cwd = '~/Flo',
-		shorten_path = true,
-		prompt_title = '🏠 ~/Flo'
+		prompt_title = '🏠 ~/Flo',
+		hidden = true
 	}
 end
 
 function dev()
 	builtin.find_files {
 		cwd = '~/Flo/Dev',
-		shorten_path = true,
-		prompt_title = '💻 Dev'
+		prompt_title = '💻 Dev',
+		hidden = true
 	}
 end
 
 function dotfiles()
 	builtin.git_files(themes.get_dropdown {
 		cwd = '~/Flo/Dotfiles',
-		shorten_path= true,
 		prompt_title = '⚙️ Dotfiles',
+		hidden = true,
 		previewer = false
 	})
 end
