@@ -280,8 +280,8 @@ local themes = require'telescope.themes'
 
 db.custom_center = {
 	{
-		icon = '🔍 ',
-		desc = 'Find file',
+		icon = '🔍',
+		desc = '   Find file',
 		action = function()
 			builtin.find_files({
 				cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
@@ -291,8 +291,8 @@ db.custom_center = {
 		end
 	},
 	{
-		icon = '💻 ',
-		desc = 'Dev',
+		icon = '💻',
+		desc = '      Dev   ',
 		action = function()
 			builtin.find_files({
 				cwd = '~/Flo/Dev',
@@ -302,8 +302,8 @@ db.custom_center = {
 		end
 	},
 	{
-		icon = '⚙️ ',
-		desc = 'Dotfiles',
+		icon = '⭐',
+		desc = '    Dotfiles',
 		action = function()
 			builtin.git_files(themes.get_dropdown({
 				cwd = '~/Flo/Dotfiles',
@@ -314,13 +314,13 @@ db.custom_center = {
 		end
 	},
 	{
-		icon = '📋 ',
-		desc = 'Create new file',
+		icon = '⚡',
+		desc = '    New file',
 		action = 'DashboardNewFile'
 	},
 	{
-		icon = '👀 ',
-		desc = 'Key maps',
+		icon = '👀',
+		desc = '    Key maps',
 		action = function()
 			builtin.keymaps(themes.get_ivy({
 				prompt_title = '👀 Key maps'
@@ -328,8 +328,8 @@ db.custom_center = {
 		end
 	},
 	{
-		icon = 'ℹ️ ',
-		desc = 'Help',
+		icon = '❓',
+		desc = '     Help   ',
 		action = function()
 			builtin.help_tags({
 				prompt_title = 'ℹ️ Help'
@@ -337,6 +337,7 @@ db.custom_center = {
 		end
 	}
 }
+
 db.custom_footer = {
 	' ',
 	' ',
