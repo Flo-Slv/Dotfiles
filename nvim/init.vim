@@ -167,7 +167,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 Plug 'xiyaowong/telescope-emoji.nvim'
-Plug 'nvim-telescope/telescope-node-modules.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'benfowler/telescope-luasnip.nvim'
 
@@ -451,7 +450,6 @@ nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader>fl <cmd>Telescope lsp_references<CR>
 nnoremap <leader>emo <cmd>Telescope emoji<CR>
-nnoremap <leader>node <cmd>Telescope node_modules list<CR>
 nnoremap <leader>fc <cmd>Telescope neoclip<CR>
 
 lua << EOF
@@ -474,7 +472,6 @@ require'telescope'.setup {
 }
 require'telescope'.load_extension'fzf'
 require'telescope'.load_extension'emoji'
-require'telescope'.load_extension'node_modules'
 require'telescope'.load_extension'luasnip'
 require'telescope'.load_extension'neoclip'
 require'neoclip'.setup()
