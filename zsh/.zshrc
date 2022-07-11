@@ -149,6 +149,9 @@ export NVM_DIR="$HOME/.nvm"
 tmux has-session -t Flo || \
 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n TERMINAL \; \
 	split-window -c ~/Flo -h \; \
-	new-window -c ~/Flo/Dev -n NEOVIM nvim \; \
+	new-window -c ~/Flo/Dev -n NEOVIM \; \
+	new-window -c ~/ -n INFOS htop \; \
+	split-window -c ~/ -v \; \
+	resize-pane -y 20 \; \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
