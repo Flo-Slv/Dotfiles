@@ -65,8 +65,8 @@ fi
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
 		"hostname 242 232" \
-		"pwd 250 232" \
-		"tmux_session_info 242 232" \
+		# "pwd 250 232" \
+		# "tmux_session_info 242 232" \
 	)
 fi
 
