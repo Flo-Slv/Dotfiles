@@ -38,12 +38,15 @@ set encoding=utf-8
 set signcolumn=yes
 set cmdheight=2
 set noshowmode
-set winbar=%=%m\ %f
 set laststatus=3
 highlight WinSeparator guibg=None
 
+function! Path() abort
+	return expand('%:~:.')
+endfunction
+set winbar=%=%m\ %{Path()}
+
 " SAVING
-set noswapfile
 set nobackup
 set undodir='~/Flo/Dotfiles/nvim/undodir'
 set undofile
@@ -552,7 +555,7 @@ require'lspconfig'.tsserver.setup {}
 require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.html.setup {}
-require'lspconfig'.sumneko_lua.setup {
+--[[ require'lspconfig'.sumneko_lua.setup {
 	settings = {
 		Lua = {
 			runtime = { version = 'LuaJIT' },
@@ -568,7 +571,7 @@ require'lspconfig'.sumneko_lua.setup {
 			telemetry = { enable = false }
 		}
 	}
-}
+} ]]
 EOF
 
 nnoremap <leader>df :lua vim.lsp.buf.definition()<CR>
@@ -647,7 +650,7 @@ for _, server in ipairs(servers) do
 	}
 end
 
-local sumneko_root_path = os.getenv('HOME') .. '/lua-language-server'
+--[[ local sumneko_root_path = os.getenv('HOME') .. '/lua-language-server'
 local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
 
 lspconfig.sumneko_lua.setup {
@@ -655,7 +658,7 @@ lspconfig.sumneko_lua.setup {
 		sumneko_binary, '-E', sumneko_root_path .. '/main.lua'
 	},
 	capabilities = capabilities
-}
+} ]]
 EOF
 
 
