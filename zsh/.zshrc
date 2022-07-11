@@ -150,8 +150,12 @@ tmux has-session -t Flo || \
 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n TERMINAL \; \
 	split-window -c ~/Flo -h \; \
 	new-window -c ~/Flo/Dev -n NEOVIM \; \
-	new-window -c ~/ -n INFOS htop \; \
-	split-window -c ~/ -v \; \
-	resize-pane -y 20 \; \
+	new-window -c ~/ -n BTOP btop \; \
+	new-window -c ~/ -n INFOS \; \
+	split-window -c ~/ -h \; \
+	select-pane -t 1 \; \
+	send-keys 'watch nvidia-smi -q --display=UTILIZATION' Enter \; \
+	select-pane -t 2 \; \
+	send-keys 'watch sensors' Enter \; \
 	select-window -t 1 \; \
 	select-pane -t 1 \;
