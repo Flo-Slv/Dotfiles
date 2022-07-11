@@ -486,7 +486,7 @@ end
 function currentDir()
 	builtin.find_files {
 		cwd = require'telescope.utils'.buffer_dir(),
-		prompt_title = '☀️ ' .. require'telescope.utils'.buffer_dir() .. ' ☀️'
+		prompt_title = '☀️ ' .. vim.fn.expand('%:~:p') .. ' ☀️'
 	}
 end
 
