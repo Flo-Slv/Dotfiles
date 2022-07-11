@@ -142,20 +142,28 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Every time I open a new terminal.
-# Open Tmux with 2 windows called TERMINAL and NEOVIM.
-# TERMINAL have two panes and NEOVIM open neovim.
-# Focus on first pane of TERMINAL.
-
+sudo --validate # First go to /etc/sudoers.d/sudoers and add this line: Defaults !tty_tickets
 tmux has-session -t Flo || \
-	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n TERMINAL \; \
+	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
 	split-window -c ~/Flo -h \; \
-	new-window -c ~/Flo/Dev -n NEOVIM \; \
-	new-window -c ~/ -n BTOP btop \; \
-	new-window -c ~/ -n INFOS \; \
+	select-pane -t 1 \; \
+	split-window -c ~/ -v \; \
+	select-pane -t 2 \; \
+	resize-pane -t 2 -y 5 \; \
+	send-keys 'sudo -i' Enter \; \
+	send-keys 'fsmall' Enter \; \
+	send-keys 'exit' Enter \; \
+	send-keys 'exit' Enter \; \
+	new-window -c ~/Flo/Dev -n Neovim \; \
+	new-window -c ~/ -n Btop btop \; \
+	new-window -c ~/ -n Infos \; \
 	split-window -c ~/ -h \; \
 	select-pane -t 1 \; \
 	send-keys 'watch nvidia-smi -q --display=UTILIZATION' Enter \; \
 	select-pane -t 2 \; \
 	send-keys 'watch sensors' Enter \; \
 	select-window -t 1 \; \
-	select-pane -t 1 \;
+	select-pane -t 2 \; \
+	select-pane -t 1 \; \
+# last fsmall is to run custom script to control fan intensity:
+# fstop, fsmall, fmedium and ffull.
