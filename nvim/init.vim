@@ -481,10 +481,6 @@ require'neoclip'.setup()
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
-function neo()
-
-end
-
 function currentDir()
 	builtin.find_files {
 		prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
@@ -760,6 +756,20 @@ let g:db_ui_table_helpers = {
 let g:db_ui_auto_execute_table_helpers = 1
 let g:db_ui_save_location = '~/Flo/Dotfiles/nvim/.vim/db'
 let g:db_ui_win_position = 'right'
+
+
+" ##############
+" # TOGGLETERM #
+" ##############
+
+lua << EOF
+require'toggleterm'.setup{
+	direction = 'horizontal',
+	open_mapping = [[<leader>tt]]
+}
+EOF
+
+nnoremap <leader>tui :TermExec cmd='ui' dir='%:p:h' direction='float'<CR>
 
 
 " ####################
