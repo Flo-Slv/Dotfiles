@@ -98,6 +98,9 @@ nmap <leader>tc :tabclose<CR>
 nnoremap H gT
 nnoremap L gt
 
+" SAVE AND SOURCE
+nnoremap <leader>so :w \| :so %<CR>
+
 " COPY FROM CURSOR TO END OF LINE
 nnoremap Y y$
 
@@ -206,6 +209,8 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'mbbill/undotree'
 Plug 'rhysd/committia.vim'
+
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 
 call plug#end()
 
