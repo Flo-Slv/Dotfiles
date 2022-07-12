@@ -541,12 +541,6 @@ nnoremap <leader>aa :lua require'harpoon.ui'.toggle_quick_menu()<CR>
 " #############
 
 lua << EOF
--- Add border to 'hover'
-local lsp = vim.lsp
-lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
-	border = 'rounded'
-})
-
 require'lspconfig'.tsserver.setup {}
 require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
@@ -568,6 +562,12 @@ require'lspconfig'.html.setup {}
 		}
 	}
 } ]]
+
+-- Add border to 'hover'
+local lsp = vim.lsp
+lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
+	border = 'rounded'
+	})
 EOF
 
 nnoremap <leader>df :lua vim.lsp.buf.definition()<CR>
