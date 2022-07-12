@@ -39,12 +39,37 @@ set signcolumn=yes
 set cmdheight=2
 set noshowmode
 set laststatus=3
-highlight WinSeparator guibg=None
 
-function! Path() abort
-	return expand('%:~:.')
-endfunction
-set winbar=%=%m\ %{Path()}
+" Set winbar only for some files.
+lua << EOF
+	vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter', 'BufFilePost'}, {
+		callback = function()
+			local winbar_filetype_exclude = {
+				'help',
+				'dashboard',
+				'NvimTree'
+			}
+
+			local excludes = function()
+			    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+					vim.opt_local.winbar = nil
+					return true
+				end
+
+				return false
+			end
+
+			if excludes() then return end
+
+			local value = '%=%m' .. vim.fn.expand('%:~:.')
+			local status_ok, err = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
+
+		    if not status_ok then return end
+		end
+	})
+EOF
+
+highlight WinSeparator guibg=None
 
 " SAVING
 set nobackup
