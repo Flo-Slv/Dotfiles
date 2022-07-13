@@ -32,6 +32,17 @@ return require'packer'.startup({
 
 		-- Harpoon
 		use 'ThePrimeagen/harpoon'
+
+		-- Nvim-treesitter
+	    use {
+			'nvim-treesitter/nvim-treesitter',
+			run = function() require('nvim-treesitter.install').update({
+				with_sync = true
+			}) end,
+		}
+
+		-- LSP
+		use 'neovim/nvim-lspconfig'
 	end,
 	config = {
     		git = {
