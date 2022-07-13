@@ -1,16 +1,3 @@
--- If firt installation
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
-		'git',
-		'clone',
-		'--depth', '1',
-		'git@github.com/wbthomason/packer.nvim',
-		install_path
-	})
-end
-
 -- Plugins
 return require'packer'.startup({
 	function(use)
@@ -93,7 +80,7 @@ return require'packer'.startup({
 			default_url_format = 'git@github.com:%s'
 		},
 		display = {
-			open_fn = require('packer.util').float,
+			open_fn = require('packer.util').float({ border = 'single' })
 		}
 	}
 })
