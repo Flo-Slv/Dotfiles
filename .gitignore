@@ -13,5 +13,6 @@ nvim/.vim/plugged
 nvim/.vim/autoload
 nvim/.vim/db
 nvim/.viminfo
+nvim/.viminfo.*
 
 zsh/.oh-my-zsh
