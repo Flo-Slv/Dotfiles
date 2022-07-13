@@ -25,23 +25,23 @@ require'neoclip'.setup()
 local options = { noremap = true }
 local key = vim.api.nvim_set_keymap
 
-key('n', '<leader>ff', ':lua currentDir()<CR>', options) 
-key('n', '<leader>flo', ':lua dev()<CR>', options) 
-key('n', '<leader>dev', ':lua dev()<CR>', options) 
-key('n', '<leader>dot', ':lua dotfiles()<CR>', options) 
-key('n', '<leader>he', ':lua help()<CR>', options) 
-key('n', '<leader>key', ':lua keymaps()<CR>', options) 
-key('n', '<leader>fb', ':Telescope buffers<CR>', options) 
-key('n', '<leader>fg', ':Telescope git_files<CR>', options) 
-key('n', '<leader>fs', ':Telescope live_grep<CR>', options) 
-key('n', '<leader>fl', ':Telescope lsp_references<CR>', options) 
-key('n', '<leader>emo', ':Telescope emoji<CR>', options) 
-key('n', '<leader>fc', ':Telescope neoclip<CR>', options) 
+key('n', '<leader>ff', ':lua currentDir()<CR>', options)
+key('n', '<leader>flo', ':lua dev()<CR>', options)
+key('n', '<leader>dev', ':lua dev()<CR>', options)
+key('n', '<leader>dot', ':lua dotfiles()<CR>', options)
+key('n', '<leader>he', ':lua help()<CR>', options)
+key('n', '<leader>key', ':lua keymaps()<CR>', options)
+key('n', '<leader>fb', ':Telescope buffers<CR>', options)
+key('n', '<leader>fg', ':Telescope git_files<CR>', options)
+key('n', '<leader>fs', ':Telescope live_grep<CR>', options)
+key('n', '<leader>fl', ':Telescope lsp_references<CR>', options)
+key('n', '<leader>emo', ':Telescope emoji<CR>', options)
+key('n', '<leader>fc', ':Telescope neoclip<CR>', options)
 
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
-function currentDir()
+local function currentDir()
 	builtin.find_files {
 		prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
 		cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
@@ -49,7 +49,7 @@ function currentDir()
 	}
 end
 
-function flo()
+local function flo()
 	builtin.find_files {
 		cwd = '~/Flo',
 		prompt_title = '🏠 ~/Flo',
@@ -57,7 +57,7 @@ function flo()
 	}
 end
 
-function dev()
+local function dev()
 	builtin.find_files {
 		cwd = '~/Flo/Dev',
 		prompt_title = '💻 Dev',
@@ -65,7 +65,7 @@ function dev()
 	}
 end
 
-function dotfiles()
+local function dotfiles()
 	builtin.git_files(themes.get_dropdown {
 		cwd = '~/Flo/Dotfiles',
 		prompt_title = '⚙️ Dotfiles',
@@ -74,13 +74,13 @@ function dotfiles()
 	})
 end
 
-function help()
+local function help()
 	builtin.help_tags {
 		prompt_title = "ℹ️ Help"
 	}
 end
 
-function keymaps()
+local function keymaps()
 	builtin.keymaps(themes.get_ivy {
 		prompt_title = '👀 Key maps'
 	})
