@@ -47,3 +47,15 @@ key('i', '<C-j>', '<esc><:move .+1<CR>==', {})
 key('i', '<C-k>', '<esc>:move .-2<CR>==', {}) 
 key('n', '<C-j>', ':move .+1<CR>==', options) 
 key('n', '<C-k>', ':move .-2<CR>==', options) 
+
+
+-- VISUAL MODE INDENT
+key('v', '<', '<gv', {})
+key('v', '>', '>gv', {})
+
+
+-- RESIZE WITH ARROWS
+key('n', '<C-Up>', ':resize +2<CR>', options)
+key('n', '<C-Down>', ':resize -2<CR>', options)
+key('n', '<C-Left>', ':vertical resize -2<CR>', options)
+key('n', '<C-Right>', ':vertical resize +2<CR>', options)
