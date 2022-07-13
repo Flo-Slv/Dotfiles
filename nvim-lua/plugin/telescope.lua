@@ -41,7 +41,7 @@ key('n', '<leader>fc', ':Telescope neoclip<CR>', options)
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
-local function currentDir()
+function currentDir()
 	builtin.find_files {
 		prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
 		cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
@@ -49,7 +49,7 @@ local function currentDir()
 	}
 end
 
-local function flo()
+function flo()
 	builtin.find_files {
 		cwd = '~/Flo',
 		prompt_title = '🏠 ~/Flo',
@@ -57,7 +57,7 @@ local function flo()
 	}
 end
 
-local function dev()
+function dev()
 	builtin.find_files {
 		cwd = '~/Flo/Dev',
 		prompt_title = '💻 Dev',
@@ -65,7 +65,7 @@ local function dev()
 	}
 end
 
-local function dotfiles()
+function dotfiles()
 	builtin.git_files(themes.get_dropdown {
 		cwd = '~/Flo/Dotfiles',
 		prompt_title = '⚙️ Dotfiles',
@@ -74,13 +74,13 @@ local function dotfiles()
 	})
 end
 
-local function help()
+function help()
 	builtin.help_tags {
 		prompt_title = "ℹ️ Help"
 	}
 end
 
-local function keymaps()
+function keymaps()
 	builtin.keymaps(themes.get_ivy {
 		prompt_title = '👀 Key maps'
 	})
