@@ -15,4 +15,6 @@ nvim/.vim/db
 nvim/.viminfo
 nvim/.viminfo.*
 
+nvim-lua/lua/undodir/*
+
 zsh/.oh-my-zsh
