@@ -1,4 +1,11 @@
-# NEOVIM
+# NEOVIM with only LUA
+
+I switched to Neovim since 4th of July 2022 after Vim 9 arrived.
+
+I first used Neovim with init.vim to use my old vim configuration and integrate some Lua code.
+
+Since 12th of July, I decided to use Neovim with only Lua code !
+<br /><br /><br />
 
 ## Build Neovim from sources
 https://github.com/neovim/neovim/wiki/Building-Neovim
@@ -21,24 +28,3 @@ For CSS and HTML:
 For Lua:
 https://github.com/sumneko/lua-language-server
 <br />
-
-In init.vim:
-<br />
-with lua.heredoc: <i>lua << EOF {...} EOF</i>
-```
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.graphql.setup{}
-require'lspconfig'.cssls.setup{}
-require'lspconfig'.html.setup{}
-
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_clients_capabilities())
-
-local servers = { 'tsserver', 'graphql', 'cssls', 'html' }
-
-for _, server in ipairs(servers) do
-  lspcongig[server].setup {
-    capabilities = capabilities
-  }
-end
-```

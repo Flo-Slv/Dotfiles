@@ -1,20 +1,20 @@
 tmux/.tmux/plugins/*
 
-vim/backup
-vim/swap
-vim/undo
-vim/.vim/plugged
-vim/.vim/autoload
-vim/.viminfo
-vim/.viminfo.*
+vim-old/backup
+vim-old/swap
+vim-old/undo
+vim-old/.vim/plugged
+vim-old/.vim/autoload
+vim-old/.viminfo
+vim-old/.viminfo.*
 
-nvim/undodir
-nvim/.vim/plugged
-nvim/.vim/autoload
-nvim/.vim/db
-nvim/.viminfo
-nvim/.viminfo.*
+nvim-old/undodir
+nvim-old/.vim/plugged
+nvim-old/.vim/autoload
+nvim-old/.vim/db
+nvim-old/.viminfo
+nvim-old/.viminfo.*
 
-nvim-lua/lua/undodir/*
+nvim/lua/undodir/*
 
 zsh/.oh-my-zsh

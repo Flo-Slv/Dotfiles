@@ -117,9 +117,9 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 
 # Path to .vimrc
-# export VIMINIT="source ~/Flo/Dotfiles/vim/.vimrc"
-# export VIMINIT="source ~/Flo/Dotfiles/nvim/init.vim"
-export VIMINIT="source ~/Flo/Dotfiles/nvim-lua/init.lua"
+# export VIMINIT="source ~/Flo/Dotfiles/vim-old/.vimrc"
+# export VIMINIT="source ~/Flo/Dotfiles/nvim-old/init.vim"
+export VIMINIT="source ~/Flo/Dotfiles/nvim/init.lua"
 
 # Set VIM as default editor
 # export VISUAL=vim
