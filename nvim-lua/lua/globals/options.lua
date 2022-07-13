@@ -58,7 +58,8 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'help',
 			'dashboard',
 			'NvimTree',
-			'harpoon'
+			'harpoon',
+			'undotree'
 		}
 
 		local excludes = function()
@@ -76,7 +77,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 
 		local status_ok, err = pcall(
 			vim.api.nvim_set_option_value,
-			"winbar",
+			'winbar',
 			value,
 			{ scope = "local" }
 		)
