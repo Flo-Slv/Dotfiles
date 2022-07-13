@@ -49,7 +49,7 @@ Next step is to create an installation script to automate this process.<br><br>
 - [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/tmux/tmux3.4-install.md) TMUX 3.4 from sources on Ubuntu 20.04 LTS
 <br>
 
-### VIM
+### VIM-old
 - [.vimrc](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vimrc)
 - [html.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/html.skel)
 - [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/css.skel)
@@ -57,8 +57,15 @@ Next step is to create an installation script to automate this process.<br><br>
 - [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim-old)
 <br>
 
-### NEOVIM
+### NEOVIM-old with vimscript and lua
 - [init.vim](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim-old/init.vim)
+<br>
+
+### NEOVIM with only lua
+- [init.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.lua)
+- [packer-plugins.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/packer-plugins.lua)
+- [options.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/options.lua)
+- [remaps.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/remaps.lua)
 <br>
 
 ---
