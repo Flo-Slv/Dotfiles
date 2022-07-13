@@ -39,7 +39,7 @@ return require'packer'.startup({
 			'nvim-treesitter/nvim-treesitter',
 			run = function() require('nvim-treesitter.install').update({
 				with_sync = true
-			}) end,
+			}) end
 		}
 
 		-- LSP
@@ -53,6 +53,29 @@ return require'packer'.startup({
 		use 'hrsh7th/cmp-nvim-lsp'
 		use 'hrsh7th/cmp-nvim-lua'
 		use 'onsails/lspkind.nvim'
+
+		-- Terminal
+		use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
+
+		-- Databases
+		use 'tpope/vim-dadbod'
+		use 'kristijanhusak/vim-dadbod-ui'
+
+		-- Commentaries
+		use 'numToStr/Comment.nvim'
+
+		-- GIT
+		use 'mbbill/undotree'
+		use 'rhysd/committia.vim'
+
+		-- Others
+		use 'tpope/vim-fugitive'
+		use 'tpope/vim-surround'
+		use 'windwp/nvim-autopairs'
+		use 'AndrewRadev/tagalong.vim'
+
+		use 'gcmt/taboo.vim'
+		use 'kshenoy/vim-signature'
 	end,
 	config = {
     		git = {
