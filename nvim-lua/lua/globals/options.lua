@@ -59,7 +59,8 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'dashboard',
 			'NvimTree',
 			'harpoon',
-			'undotree'
+			'undotree',
+			'fugitive'
 		}
 
 		local excludes = function()
