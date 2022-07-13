@@ -1,0 +1,85 @@
+-- ###########
+-- # OPTIONS #
+-- ###########
+
+
+local options = {
+	-- DISPLAY
+	title = true,
+	number = true,
+	relativenumber = true,
+	wrap = false,
+	scrolloff = 10,
+	sidescrolloff = 10,
+	mouse = 'a',
+	cursorline = true,
+	colorcolumn = '80',
+	textwidth = 80,
+	shiftwidth = 4,
+	tabstop = 4,
+	softtabstop = 4,
+	fileencoding = 'utf-8',
+	signcolumn = 'yes',
+	cmdheight = 2,
+	showmode = false,
+	laststatus = 3,
+	splitbelow = true,
+	splitright = true,
+	smartindent = true,
+	-- SAVING
+	backup = false,
+	writebackup = false,
+	swapfile = false,
+	undofile = true,
+	undodir = '~/Flo/Dotfiles/nvim-lua/lua/undodir',
+	undolevels = 500,
+	-- SEARCH
+	ignorecase = true,
+	smartcase = true,
+	-- COMPLETION
+	wildignore = '*.o,*.r,*.so,*.sl',
+	completeopt = { 'menu', 'menuone', 'noselect' },
+	-- REMOVE BEEP
+	visualbell = true,
+	errorbells = false
+}
+
+for key, value in pairs(options) do
+	vim.opt[key] = value
+end
+
+vim.cmd [[ highlight WinSeparator guibg=None ]]
+vim.cmd [[ set list lcs=tab:\|\ ]]
+
+-- Set winbar only for some filetypes.
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufFilePost' }, {
+	callback = function()
+		local winbar_filetype_exclude = {
+			'help',
+			'dashboard',
+			'NvimTree'
+		}
+
+		local excludes = function()
+			if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+				vim.opt_local.winbar = nil
+				return true
+			end
+
+			return false
+		end
+
+		if excludes() then return end
+
+		local value = '%=%m' .. vim.fn.expand('%:~:.')
+
+		local status_ok, err = pcall(
+			vim.api.nvim_set_option_value,
+			"winbar",
+			value,
+			{ scope = "local" }
+		)
+
+		if not status_ok then return end
+	end
+})
