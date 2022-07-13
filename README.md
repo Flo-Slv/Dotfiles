@@ -50,11 +50,11 @@ Next step is to create an installation script to automate this process.<br><br>
 <br>
 
 ### VIM
-- [.vimrc](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vimrc)
-- [html.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vim/html.skel)
-- [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/.vim/css.skel)
-- [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/vim/vim8.2-install.md) VIM 8.2 from sources on Ubuntu 20.04 LTS
-- [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim)
+- [.vimrc](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vimrc)
+- [html.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/html.skel)
+- [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/css.skel)
+- [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/vim8.2-install.md) VIM 8.2 from sources on Ubuntu 20.04 LTS
+- [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim-old)
 <br>
 
 ### NEOVIM
