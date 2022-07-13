@@ -80,7 +80,9 @@ return require'packer'.startup({
 			default_url_format = 'git@github.com:%s'
 		},
 		display = {
-			open_fn = require('packer.util').float({ border = 'single' })
+			open_fn = function()
+      				return require('packer.util').float({ border = 'single' })
+			end
 		}
 	}
 })
