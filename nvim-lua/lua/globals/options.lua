@@ -52,12 +52,13 @@ vim.cmd [[ highlight WinSeparator guibg=None ]]
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
 -- Set winbar only for some filetypes.
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufFilePost' }, {
+vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 	callback = function()
 		local winbar_filetype_exclude = {
 			'help',
 			'dashboard',
-			'NvimTree'
+			'NvimTree',
+			'harpoon'
 		}
 
 		local excludes = function()
