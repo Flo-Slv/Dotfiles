@@ -54,9 +54,6 @@ return require'packer'.startup({
 		use 'hrsh7th/cmp-nvim-lua'
 		use 'onsails/lspkind.nvim'
 
-		-- Terminal
-		use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
-
 		-- Databases
 		use 'tpope/vim-dadbod'
 		use 'kristijanhusak/vim-dadbod-ui'
