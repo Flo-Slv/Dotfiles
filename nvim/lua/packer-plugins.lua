@@ -1,4 +1,4 @@
--- At first install
+-- At first install.
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -12,6 +12,19 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
+-- PackerSync every time we save packer-plugins.lua
+local buf_name = vim.api.nvim_buf_get_name(0)
+
+if buf_name == '/home/floslv/Flo/Dotfiles/nvim/lua/packer-plugins.lua' then
+	local group = vim.api.nvim_create_augroup('packer_reload', { clear = true })
+	vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+		command = 'source packer-plugins.lua | PackerSync',
+		group = group,
+		buffer = 0
+	})
+end
+
+
 -- Plugins
 return require'packer'.startup({
 	function(use)
@@ -24,7 +37,6 @@ return require'packer'.startup({
 		-- Display
 		use 'itchyny/lightline.vim'
 		use 'glepnir/dashboard-nvim'
-		use 'kyazdani42/nvim-tree.lua'
 		use 'kyazdani42/nvim-web-devicons'
 		use {
 			'kyazdani42/nvim-tree.lua',
