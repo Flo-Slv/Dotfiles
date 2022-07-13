@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			vim.api.nvim_set_option_value,
 			'winbar',
 			value,
-			{ scope = "local" }
+			{ scope = 'local' }
 		)
 
 		if not status_ok then return end
