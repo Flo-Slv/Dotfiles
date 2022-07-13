@@ -30,8 +30,8 @@ local options = {
 	backup = false,
 	writebackup = false,
 	swapfile = false,
+	undodir = vim.fn.expand('~') .. '/Flo/Dotfiles/nvim-lua/lua/undodir',
 	undofile = true,
-	undodir = '~/Flo/Dotfiles/nvim-lua/lua/undodir',
 	undolevels = 500,
 	-- SEARCH
 	ignorecase = true,
