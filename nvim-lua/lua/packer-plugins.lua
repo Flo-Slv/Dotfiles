@@ -10,6 +10,14 @@ return require'packer'.startup({
 		use 'itchyny/lightline.vim'
 		use 'glepnir/dashboard-nvim'
 		use 'kyazdani42/nvim-tree.lua'
+		use 'kyazdani42/nvim-web-devicons'
+		use {
+			'kyazdani42/nvim-tree.lua',
+			requires = {
+				'kyazdani42/nvim-web-devicons',
+			},
+			tag = 'nightly'
+		}
 		use 'gelguy/wilder.nvim'
 
 		-- Telescope
@@ -21,6 +29,9 @@ return require'packer'.startup({
 		use 'xiyaowong/telescope-emoji.nvim'
 		use 'AckslD/nvim-neoclip.lua'
 		use 'benfowler/telescope-luasnip.nvim'
+
+		-- Harpoon
+		use 'ThePrimeagen/harpoon'
 	end,
 	config = {
     		git = {
