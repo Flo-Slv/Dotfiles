@@ -58,7 +58,7 @@ Next step is to create an installation script to automate this process.<br><br>
 <br>
 
 ### NEOVIM
-- [init.vim](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.vim)
+- [init.vim](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim-old/init.vim)
 <br>
 
 ---
