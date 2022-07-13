@@ -62,6 +62,7 @@ Next step is to create an installation script to automate this process.<br><br>
 <br>
 
 ### NEOVIM with only lua
+- [README.md](https://github.com/Flo-Slv/Dotfiles/tree/master/nvim)
 - [init.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.lua)
 - [packer-plugins.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/packer-plugins.lua)
 - [options.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/options.lua)
