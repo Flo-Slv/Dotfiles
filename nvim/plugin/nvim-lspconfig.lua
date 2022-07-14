@@ -14,11 +14,10 @@ require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.html.setup {}
 
-local schemas = require'globals.lsp.json-formats'
 require'lspconfig'.jsonls.setup {
 	settings = {
 		-- TODO: find why not working !
-		-- json = { schemas = schemas },
+		-- json = { schemas = require'lsp.json-formats' },
 		-- setup = {
 		-- 	commands = {
 		-- 		Format = {
