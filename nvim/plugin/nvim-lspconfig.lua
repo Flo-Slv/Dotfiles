@@ -13,6 +13,23 @@ require'lspconfig'.tsserver.setup {}
 require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.html.setup {}
+
+local schemas = require'globals.lsp.json-formats'
+require'lspconfig'.jsonls.setup {
+	settings = {
+		-- TODO: find why not working !
+		-- json = { schemas = schemas },
+		-- setup = {
+		-- 	commands = {
+		-- 		Format = {
+		-- 			function()
+		-- 				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
+		-- 			end
+		-- 		}
+		-- 	}
+		-- }
+	}
+}
 require'lspconfig'.sumneko_lua.setup {
 	settings = {
 		Lua = {
@@ -47,15 +64,7 @@ vim.diagnostic.config({
 	signs = true,
 	underline = true,
 	update_in_insert = true,
-	severity_sort = true,
-	float = {
-		focusable = false,
-		style = 'minimal',
-		border = 'rounded',
-		source = 'always',
-		header = '',
-		prefix = ''
-	}
+	severity_sort = true
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
