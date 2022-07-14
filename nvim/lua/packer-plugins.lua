@@ -13,16 +13,28 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- PackerSync every time we save packer-plugins.lua
-local buf_name = vim.api.nvim_buf_get_name(0)
+-- local buf_name = vim.api.nvim_buf_get_name(0)
+-- local path = {
+-- 	'/home/floslv/Flo/Dotfiles/nvim/lua/packer-plugins.lua',
+-- 	'~/Flo/Dotfiles/nvim/lua/packer-plugins.lua'
+-- }
+--
+-- if vim.tbl_contains(path, buf_name) then
+-- 	local group = vim.api.nvim_create_augroup('packer_reload', { clear = true })
+-- 	-- vim.api.nvim_clear_autocmds({ group = 'packer_reload', buffer = 0 })
+-- 	vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+-- 		command = 'source % | PackerSync',
+-- 		group = group,
+-- 		buffer = 0
+-- 	})
+-- end
 
-if buf_name == '/home/floslv/Flo/Dotfiles/nvim/lua/packer-plugins.lua' then
-	local group = vim.api.nvim_create_augroup('packer_reload', { clear = true })
-	vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-		command = 'source packer-plugins.lua | PackerSync',
-		group = group,
-		buffer = 0
-	})
-end
+vim.cmd [[
+	augroup packer_reload
+		autocmd!
+		autocmd BufWritePost packer-plugins.lua source <afile> | PackerSync
+	augroup end
+]]
 
 
 -- Plugins
