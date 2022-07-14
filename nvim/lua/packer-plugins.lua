@@ -82,6 +82,7 @@ return require'packer'.startup({
 				with_sync = true
 			}) end
 		}
+		use 'p00f/nvim-ts-rainbow'
 
 		-- LSP
 		use 'neovim/nvim-lspconfig'
