@@ -68,9 +68,9 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'fugitive',
 			'dbui',
 			'packer',
-			'gitsigns', -- TODO find filetype
+			'gitsigns.popup', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup'
 			'lsp-installer',
-			'lspconfig', -- TODO find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
+			'lspconfig', -- TODO: find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
 		}
 
 		local excludes = function()
