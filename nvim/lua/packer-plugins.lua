@@ -83,6 +83,7 @@ return require'packer'.startup({
 
 		-- LSP
 		use 'neovim/nvim-lspconfig'
+		use 'williamboman/nvim-lsp-installer'
 
 		-- Nvim-cmp
 		use 'hrsh7th/nvim-cmp'
@@ -90,7 +91,6 @@ return require'packer'.startup({
 		use 'hrsh7th/cmp-path'
 		use 'hrsh7th/cmp-cmdline'
 		use 'hrsh7th/cmp-nvim-lsp'
-		use 'hrsh7th/cmp-nvim-lua'
 		use 'onsails/lspkind.nvim'
 
 		-- Databases
