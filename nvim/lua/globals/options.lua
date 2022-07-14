@@ -3,6 +3,8 @@
 -- ###########
 
 
+local vim = vim
+
 local options = {
 	-- DISPLAY
 	title = true,
@@ -22,7 +24,6 @@ local options = {
 	signcolumn = 'yes',
 	cmdheight = 2,
 	showmode = false,
-	laststatus = 3,
 	splitbelow = true,
 	splitright = true,
 	smartindent = true,
@@ -49,10 +50,12 @@ for key, value in pairs(options) do
 	vim.opt[key] = value
 end
 
-vim.cmd [[ highlight WinSeparator guibg=None ]]
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
 -- Set winbar only for some filetypes.
+vim.opt.laststatus = 3
+vim.cmd [[ highlight WinSeparator guibg=None ]] -- TODO: find how to change to white !
+
 vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 	callback = function()
 		local winbar_filetype_exclude = {
@@ -63,7 +66,9 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'undotree',
 			'fugitive',
 			'dbui',
-			'packer'
+			'packer',
+			'lsp-installer',
+			'lspconfig', -- TODO find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
 		}
 
 		local excludes = function()
@@ -79,7 +84,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 
 		local value = '%=%m' .. vim.fn.expand('%:~:.')
 
-		local status_ok, err = pcall(
+		local status_ok, _ = pcall(
 			vim.api.nvim_set_option_value,
 			'winbar',
 			value,
