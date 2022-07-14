@@ -13,10 +13,7 @@ require'lspconfig'.tsserver.setup {}
 require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.html.setup {}
-require'lspconfig'.sumneko_lua.setup {}
-
--- If I want to setup manually instead of using nvim-lsp-installer.
---[[ require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.sumneko_lua.setup {
 	settings = {
 		Lua = {
 			runtime = { version = 'LuaJIT' },
@@ -32,7 +29,7 @@ require'lspconfig'.sumneko_lua.setup {}
 			telemetry = { enable = false }
 		}
 	}
-} ]]
+}
 
 
 -- UI
