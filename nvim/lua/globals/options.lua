@@ -16,6 +16,7 @@ local options = {
 	mouse = 'a',
 	cursorline = true,
 	colorcolumn = '80',
+	numberwidth = 4,
 	textwidth = 80,
 	shiftwidth = 4,
 	tabstop = 4,
@@ -67,6 +68,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'fugitive',
 			'dbui',
 			'packer',
+			'gitsigns', -- TODO find filetype
 			'lsp-installer',
 			'lspconfig', -- TODO find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
 		}
