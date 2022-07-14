@@ -68,7 +68,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'fugitive',
 			'dbui',
 			'packer',
-			'gitsigns.popup', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup'
+			'gitsigns_head', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup', 'gitsigns_status'
 			'lsp-installer',
 			'lspconfig', -- TODO: find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
 		}
