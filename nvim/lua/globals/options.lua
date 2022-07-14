@@ -26,6 +26,7 @@ local options = {
 	splitbelow = true,
 	splitright = true,
 	smartindent = true,
+	clipboard = 'unnamedplus',
 	-- SAVING
 	backup = false,
 	writebackup = false,
@@ -61,7 +62,8 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'harpoon',
 			'undotree',
 			'fugitive',
-			'dbui'
+			'dbui',
+			'packer'
 		}
 
 		local excludes = function()
