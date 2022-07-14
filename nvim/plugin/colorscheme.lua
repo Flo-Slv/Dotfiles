@@ -1,18 +1,11 @@
-vim.cmd [[ colorscheme tokyonight ]]
+local colorscheme = 'tokyonight'
 
-vim.g.lightline = {
-	colorscheme = 'PaperColor',
-	active = {
-		left = {
-			{ 'mode', 'paste' },
-			{ 'gitbranch', 'readonly', 'filename', 'modified' }
-		},
-		right = {
-			{ 'percent' },
-			{ 'filetype' }
-		}
-	},
-	component_function = {
-		gitbranch = 'FugitiveHead'
-	}
-}
+local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+
+if not status_ok then
+	vim.notify('colorscheme ' .. colorscheme .. ' not found !')
+	vim.cmd [[ colorscheme desert ]]
+	return
+end
+
+vim.cmd [[ colorscheme tokyonight ]]
