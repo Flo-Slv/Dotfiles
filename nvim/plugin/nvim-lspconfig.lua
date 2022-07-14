@@ -1,7 +1,21 @@
+require'nvim-lsp-installer'.setup {
+	ui = {
+		border = 'rounded',
+		icons = {
+			server_installed = "✓",
+			server_pending = "➜",
+			server_uninstalled = "✗"
+		}
+	}
+}
+
 require'lspconfig'.tsserver.setup {}
 require'lspconfig'.graphql.setup {}
 require'lspconfig'.cssls.setup {}
 require'lspconfig'.html.setup {}
+require'lspconfig'.sumneko_lua.setup {}
+
+-- If I want to setup manually instead of using nvim-lsp-installer.
 --[[ require'lspconfig'.sumneko_lua.setup {
 	settings = {
 		Lua = {
@@ -23,6 +37,9 @@ require'lspconfig'.html.setup {}
 -- Add border to 'hover'
 local lsp = vim.lsp
 lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
+	border = 'rounded'
+})
+lsp.handlers['textDocument/signatureHelp'] = lsp.with(vim.lsp.handlers.hover, {
 	border = 'rounded'
 })
 
