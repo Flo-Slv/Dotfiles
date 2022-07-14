@@ -34,8 +34,10 @@ require'lspconfig'.sumneko_lua.setup {}
 	}
 } ]]
 
--- Add border to 'hover'
+
+-- UI
 local lsp = vim.lsp
+
 lsp.handlers['textDocument/hover'] = lsp.with(vim.lsp.handlers.hover, {
 	border = 'rounded'
 })
@@ -43,6 +45,30 @@ lsp.handlers['textDocument/signatureHelp'] = lsp.with(vim.lsp.handlers.hover, {
 	border = 'rounded'
 })
 
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = 'minimal',
+		border = 'rounded',
+		source = 'always',
+		header = '',
+		prefix = ''
+	}
+})
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+
+-- MAPPING
 local key = vim.api.nvim_set_keymap
 
 key('n', '<leader>df', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
