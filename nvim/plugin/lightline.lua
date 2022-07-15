@@ -11,6 +11,7 @@ vim.g.lightline = {
 		}
 	},
 	component_function = {
-		gitbranch = 'FugitiveHead'
+		gitbranch = 'FugitiveHead',
+		readonly = 'LightlineReadonly'
 	}
 }
