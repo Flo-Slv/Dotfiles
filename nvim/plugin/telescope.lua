@@ -19,18 +19,19 @@ require'telescope'.setup {
 require'telescope'.load_extension'fzf'
 require'telescope'.load_extension'emoji'
 require'telescope'.load_extension'luasnip'
+-- require'telescope'.extensions.notify.notify(<opts>)
 require'telescope'.load_extension'neoclip'
 require'neoclip'.setup()
 
 local options = { noremap = true }
 local key = vim.api.nvim_set_keymap
 
-key('n', '<leader>ff', ':lua currentDir()<CR>', options)
-key('n', '<leader>flo', ':lua dev()<CR>', options)
-key('n', '<leader>dev', ':lua dev()<CR>', options)
-key('n', '<leader>dot', ':lua dotfiles()<CR>', options)
-key('n', '<leader>he', ':lua help()<CR>', options)
-key('n', '<leader>key', ':lua keymaps()<CR>', options)
+key('n', '<leader>ff', ':lua CurrentDir()<CR>', options)
+key('n', '<leader>flo', ':lua Flo()<CR>', options)
+key('n', '<leader>dev', ':lua Dev()<CR>', options)
+key('n', '<leader>dot', ':lua Dotfiles()<CR>', options)
+key('n', '<leader>he', ':lua Help()<CR>', options)
+key('n', '<leader>key', ':lua Keymaps()<CR>', options)
 key('n', '<leader>fb', ':Telescope buffers<CR>', options)
 key('n', '<leader>fg', ':Telescope git_files<CR>', options)
 key('n', '<leader>fs', ':Telescope live_grep<CR>', options)
@@ -41,7 +42,7 @@ key('n', '<leader>fc', ':Telescope neoclip<CR>', options)
 local builtin = require'telescope.builtin'
 local themes = require'telescope.themes'
 
-function currentDir()
+function CurrentDir()
 	builtin.find_files {
 		prompt_title = '☀️ ' .. vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', '') .. ' ☀️',
 		cwd = vim.fn.substitute(vim.fn.getcwd(), '/home/floslv', '~', ''),
@@ -49,7 +50,7 @@ function currentDir()
 	}
 end
 
-function flo()
+function Flo()
 	builtin.find_files {
 		cwd = '~/Flo',
 		prompt_title = '🏠 ~/Flo',
@@ -57,7 +58,7 @@ function flo()
 	}
 end
 
-function dev()
+function Dev()
 	builtin.find_files {
 		cwd = '~/Flo/Dev',
 		prompt_title = '💻 Dev',
@@ -65,7 +66,7 @@ function dev()
 	}
 end
 
-function dotfiles()
+function Dotfiles()
 	builtin.git_files(themes.get_dropdown {
 		cwd = '~/Flo/Dotfiles',
 		prompt_title = '⚙️ Dotfiles',
@@ -74,13 +75,13 @@ function dotfiles()
 	})
 end
 
-function help()
+function Help()
 	builtin.help_tags {
 		prompt_title = "ℹ️ Help"
 	}
 end
 
-function keymaps()
+function Keymaps()
 	builtin.keymaps(themes.get_ivy {
 		prompt_title = '👀 Key maps'
 	})
