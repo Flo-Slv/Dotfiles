@@ -19,7 +19,7 @@ require'telescope'.setup {
 require'telescope'.load_extension'fzf'
 require'telescope'.load_extension'emoji'
 require'telescope'.load_extension'luasnip'
--- require'telescope'.extensions.notify.notify(<opts>)
+require'telescope'.load_extension'notify'
 require'telescope'.load_extension'neoclip'
 require'neoclip'.setup()
 
