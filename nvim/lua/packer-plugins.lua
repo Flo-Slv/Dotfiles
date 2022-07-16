@@ -1,8 +1,8 @@
--- At first install.
 local vim = vim
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+-- At first install.
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
 		'git',
@@ -31,6 +31,7 @@ end
 -- 	})
 -- end
 
+-- Using vimscript bc Lua script above doesn't work when opening w/ Telescope. 
 vim.cmd [[
 	augroup packer_reload
 		autocmd!
@@ -54,9 +55,7 @@ return require'packer'.startup({
 		use 'kyazdani42/nvim-web-devicons'
 		use {
 			'kyazdani42/nvim-tree.lua',
-			requires = {
-				'kyazdani42/nvim-web-devicons',
-			},
+			requires = { 'kyazdani42/nvim-web-devicons' },
 			tag = 'nightly'
 		}
 		use 'gelguy/wilder.nvim'
@@ -64,9 +63,12 @@ return require'packer'.startup({
 		-- Telescope
 		use {
 			'nvim-telescope/telescope.nvim', tag = '0.1.0',
-			requires = { {'nvim-lua/plenary.nvim'} }
+			requires = { { 'nvim-lua/plenary.nvim' } }
 		}
-		use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+		use {
+			'nvim-telescope/telescope-fzf-native.nvim',
+			run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+		}
 
 		use 'xiyaowong/telescope-emoji.nvim'
 		use 'AckslD/nvim-neoclip.lua'
@@ -106,6 +108,9 @@ return require'packer'.startup({
 		-- Commentaries
 		use 'numToStr/Comment.nvim'
 
+		-- Notifications
+		use 'rcarriga/nvim-notify'
+
 		-- GIT
 		use 'mbbill/undotree'
 		use 'rhysd/committia.vim'
@@ -119,8 +124,6 @@ return require'packer'.startup({
 
 		use 'gcmt/taboo.vim'
 		use 'kshenoy/vim-signature'
-
-		use 'rcarriga/nvim-notify'
 	end,
 	config = {
    		git = {
