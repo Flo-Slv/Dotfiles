@@ -119,6 +119,8 @@ return require'packer'.startup({
 
 		use 'gcmt/taboo.vim'
 		use 'kshenoy/vim-signature'
+
+		use 'rcarriga/nvim-notify'
 	end,
 	config = {
    		git = {
