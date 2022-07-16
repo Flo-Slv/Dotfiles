@@ -1,11 +1,23 @@
 local ls = require'luasnip'
+local snip = ls.snippet
+local func = ls.function_node
+
+local date = function ()
+	return { os.date('%d-%m-%Y')}
+end
 
 -- Snippets
-ls.snippets = {
+ls.add_snippets(nil, {
 	all = {
-
-	},
-	lua = {
-
+		snip(
+			{
+				trig = 'da',
+				name = 'Date',
+				dscr = 'Test de date'
+			}, {
+				func(date, {})
+			}
+		)
 	}
-}
+})
+
