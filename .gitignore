@@ -16,6 +16,7 @@ nvim-old/.viminfo
 nvim-old/.viminfo.*
 
 nvim/lua/undodir/*
+nvim/lua/db
 
 nvim-lua
 
