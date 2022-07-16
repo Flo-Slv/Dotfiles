@@ -53,12 +53,3 @@ end)
 -- Reload luasnip.lua
 vim.keymap.set('n', '<leader>s', ':source ~/Flo/Dotfiles/nvim/plugin/luasnip.lua<CR>', { noremap = true })
 
--- Snippets
--- ls.snippets = {
--- 	all = {
---
--- 	},
--- 	lua = {
---
--- 	}
--- }
