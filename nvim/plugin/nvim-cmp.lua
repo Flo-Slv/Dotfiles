@@ -15,7 +15,21 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.abort(),
 		['<C-i>'] = cmp.mapping.select_next_item(),
 		['<C-p'] = cmp.mapping.select_prev_item(),
-		['<CR>'] = cmp.mapping.confirm({ select = true })
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		["<C-j>"] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<C-k"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" })
 	}),
 	window = {
 		completion = cmp.config.window.bordered(),
