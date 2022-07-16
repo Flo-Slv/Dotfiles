@@ -43,8 +43,6 @@ key('i', '?', '?<C-g>u', {})
 -- MOVING TEXT
 key('v', 'J', ":move '>+1<CR>gv=gv", {})
 key('v', 'K', ":move '<-2<CR>gv=gv", {})
-key('i', '<C-j>', '<esc><:move .+1<CR>==', {})
-key('i', '<C-k>', '<esc>:move .-2<CR>==', {})
 key('n', '<C-j>', ':move .+1<CR>==', options)
 key('n', '<C-k>', ':move .-2<CR>==', options)
 
