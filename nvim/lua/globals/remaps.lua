@@ -26,10 +26,13 @@ key('n', 'N', 'Nzzzv', options)
 
 
 -- NAVIGATE EASILY BETWEEN WINDOWS
-key('n', '<leader>h', ':wincmd h<CR>', options)
-key('n', '<leader>j', ':wincmd j<CR>', options)
-key('n', '<leader>k', ':wincmd k<CR>', options)
-key('n', '<leader>l', ':wincmd l<CR>', options)
+-- using vim-tmux-navigator
+vim.g.tmux_navigator_no_mappings = true
+
+key('n', '<M-h>', ':TmuxNavigateLeft<CR>', options)
+key('n', '<M-j>', ':TmuxNavigateDown<CR>', options)
+key('n', '<M-k>', ':TmuxNavigateUp<CR>', options)
+key('n', '<M-l>', ':TmuxNavigateRight<CR>', options)
 
 
 -- UNDO BREAK POINTS

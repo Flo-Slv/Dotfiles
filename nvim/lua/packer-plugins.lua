@@ -124,6 +124,8 @@ return require'packer'.startup({
 
 		use 'gcmt/taboo.vim'
 		use 'kshenoy/vim-signature'
+
+		use 'christoomey/vim-tmux-navigator'
 	end,
 	config = {
    		git = {
