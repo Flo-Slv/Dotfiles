@@ -24,7 +24,7 @@ require'telescope'.load_extension'neoclip'
 require'neoclip'.setup()
 
 local options = { noremap = true }
-local key = vim.api.nvim_set_keymap
+local key = vim.keymap.set
 
 key('n', '<leader>ff', ':lua CurrentDir()<CR>', options)
 key('n', '<leader>flo', ':lua Flo()<CR>', options)

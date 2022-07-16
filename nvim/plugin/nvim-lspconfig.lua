@@ -74,7 +74,7 @@ end
 
 
 -- MAPPING
-local key = vim.api.nvim_set_keymap
+local key = vim.keymap.set
 
 key('n', '<leader>df', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
 key('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })

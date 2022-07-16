@@ -1,1 +1,1 @@
-vim.api.nvim_set_keymap('n', '<leader>gs', ':G<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>gs', ':G<CR>', { noremap = true })

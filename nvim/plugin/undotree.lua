@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
 
 vim.cmd [[
 	if has('persistent_undo')
