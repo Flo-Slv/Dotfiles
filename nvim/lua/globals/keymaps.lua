@@ -152,7 +152,7 @@ key('n', '<C-f>', ':NvimTreeFindFile<CR>', full_options)
 -- # VIM-DADBOD-UI #
 -- #################
 
-key('n', '<leader>mo', ':tabnew | :DBUIToggle<CR>', full_options)
+key('n', '<leader>mo', ':tabnew | :DBUIToggle<CR>:TabooRename DB<CR>', full_options)
 
 vim.cmd [[
 autocmd FileType dbui nmap <buffer> u <Plug>(DBUI_ToggleDetails)
