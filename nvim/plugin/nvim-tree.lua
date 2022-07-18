@@ -12,11 +12,6 @@ require'nvim-tree'.setup({
 	}
 })
 
-local options = { noremap = true }
-
-vim.keymap.set('n', '<C-a>', ':NvimTreeToggle<CR>', options)
-vim.keymap.set('n', '<C-f>', ':NvimTreeFindFile<CR>', options)
-
 -- Autocmd to quit NvimTree when last windows close.
 -- There is an issue with auto_close options...
 vim.api.nvim_create_autocmd('BufEnter', {
