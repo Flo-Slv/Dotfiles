@@ -126,6 +126,8 @@ return require'packer'.startup({
 		use 'kshenoy/vim-signature'
 
 		use 'christoomey/vim-tmux-navigator'
+
+		use 'folke/which-key.nvim'
 	end,
 	config = {
    		git = {
