@@ -47,7 +47,7 @@ require('gitsigns').setup {
 		delay = 500,
 		ignore_whitespace = false
 	},
-	current_line_blame_formatter = '<author>, <author_time:%d-%m-%Y> - <summary>', -- TODO: find how to set date
+	current_line_blame_formatter = '<author>, <author_time:%d-%m-%Y> - <summary>',
 	sign_priority = 6,
 	update_debounce = 100,
 	status_formatter = nil, -- Use default

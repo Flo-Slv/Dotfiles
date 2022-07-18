@@ -5,8 +5,8 @@
 
 local vim = vim
 
-local options = {
 	-- DISPLAY
+local options = {
 	title = true,
 	number = true,
 	relativenumber = true,
@@ -53,10 +53,8 @@ for key, value in pairs(options) do
 	vim.opt[key] = value
 end
 
-
 -- Set '|' for each tab indentation
 vim.cmd [[ set list lcs=tab:\|\ ]]
-
 
 -- Opacity on non-acitve windows
 vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
@@ -95,7 +93,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'dbui',
 			'packer',
 			'glowpreview',
-			'gitsigns_head', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup', 'gitsigns_status'
+			'gitsigns_head', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup', 'gitsigns_status', 'GitSigns', 'gitSigns', 'gitsignspreview', 'gitsigns_preview', 'gitsigns_popup'
 			'lsp-installer',
 			'lspconfig', -- TODO: find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
 		}
