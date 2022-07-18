@@ -90,6 +90,7 @@ return require'packer'.startup({
 		-- LSP
 		use 'neovim/nvim-lspconfig'
 		use 'williamboman/nvim-lsp-installer'
+		use 'RRethy/vim-illuminate'
 
 		-- Nvim-cmp
 		use 'hrsh7th/nvim-cmp'
@@ -130,10 +131,6 @@ return require'packer'.startup({
 		use 'kshenoy/vim-signature'
 
 		use 'christoomey/vim-tmux-navigator'
-
-		use 'folke/which-key.nvim'
-
-		use 'RRethy/vim-illuminate'
 	end,
 	config = {
    		git = {
