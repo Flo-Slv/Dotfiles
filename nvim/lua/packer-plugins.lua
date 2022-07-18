@@ -128,6 +128,8 @@ return require'packer'.startup({
 		use 'christoomey/vim-tmux-navigator'
 
 		use 'folke/which-key.nvim'
+
+		use 'RRethy/vim-illuminate'
 	end,
 	config = {
    		git = {

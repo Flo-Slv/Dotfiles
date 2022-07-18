@@ -76,7 +76,10 @@ local servers = { 'tsserver', 'graphql', 'cssls', 'html', 'sumneko_lua', 'jsonls
 
 for _, server in ipairs(servers) do
 	lspconfig[server].setup {
-		capabilities = capabilities
+		capabilities = capabilities,
+		on_attach = function(client)
+			require'illuminate'.on_attach(client)
+		end
 	}
 end
 
