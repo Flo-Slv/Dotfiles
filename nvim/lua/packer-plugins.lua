@@ -50,7 +50,6 @@ return require'packer'.startup({
 		use 'folke/tokyonight.nvim'
 
 		-- Display
-		-- use 'itchyny/lightline.vim'
 		use 'nvim-lualine/lualine.nvim'
 		use 'glepnir/dashboard-nvim'
 		use 'kyazdani42/nvim-web-devicons'
@@ -60,6 +59,7 @@ return require'packer'.startup({
 			tag = 'nightly'
 		}
 		use 'gelguy/wilder.nvim'
+		use 'TaDaa/vimade'
 
 		-- Telescope
 		use {
