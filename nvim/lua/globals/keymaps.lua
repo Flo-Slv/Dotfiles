@@ -203,3 +203,10 @@ key('n', '<leader>u', ':UndotreeToggle<CR>', full_options)
 -- ################
 
 key('n', '<leader>gs', ':G<CR>', full_options)
+
+
+-- ########
+-- # GLOW #
+-- ########
+
+key('n', '<leader>gl', ':Glow<CR>', full_options)
