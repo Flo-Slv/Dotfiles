@@ -117,6 +117,9 @@ return require'packer'.startup({
 		use 'rhysd/committia.vim'
 		use 'lewis6991/gitsigns.nvim'
 
+		-- Markdown
+		use 'ellisonleao/glow.nvim'
+
 		-- Others
 		use 'tpope/vim-fugitive'
 		use 'tpope/vim-surround'
