@@ -29,7 +29,7 @@ local options = {
 	splitright = true,
 	smartindent = true,
 	clipboard = 'unnamedplus',
-	laststatus = 2,
+	laststatus = 3,
 	termguicolors = true,
 	-- SAVING
 	backup = false,
@@ -58,9 +58,27 @@ end
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
 
--- TODO: find how to fade inactive windows without plugin TaDaa/vimade
--- vim.api.nvim_win_set_option(0, 'winhighlight', 'Normal:white')
+-- Opacity on non-acitve windows
+vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
+vim.cmd [[ highlight NonActiveWindows guibg=#2C3043 ]]
+vim.cmd [[ highlight NonActiveWinbar guibg=#2C3043 ]]
+-- TODO: change signcolumn or foldcolumn
 
+vim.cmd [[
+set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar
+]]
+
+-- local group = vim.api.nvim_create_augroup('change_color', { clear = true })
+-- vim.api.nvim_create_autocmd({ 'VimEnter', 'BufEnter', 'BufWinEnter' }, {
+-- 	command = 'set colorcolumn=80',
+-- 	group = group,
+-- 	buffer = 0
+-- })
+-- vim.api.nvim_create_autocmd({ 'BufLeave' }, {
+-- 	command = 'set colorcolumn=0',
+-- 	group = group,
+-- 	buffer = 0
+-- })
 
 -- Set winbar only for some filetypes.
 vim.api.nvim_set_hl(0, 'WinSeparator', { guibg = None })
