@@ -63,8 +63,6 @@ key('n', '<C-Right>', ':vertical resize +2<CR>', full_options)
 
 
 -- KEEP CENTERED
-key('n', 'j', 'jzz', full_options)
-key('n', 'k', 'kzz', full_options)
 key('n', 'G', 'Gzz', full_options)
 
 
