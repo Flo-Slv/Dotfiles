@@ -30,6 +30,7 @@ local options = {
 	smartindent = true,
 	clipboard = 'unnamedplus',
 	laststatus = 2,
+	termguicolors = true,
 	-- SAVING
 	backup = false,
 	writebackup = false,
