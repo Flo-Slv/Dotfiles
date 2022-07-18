@@ -29,6 +29,7 @@ local options = {
 	splitright = true,
 	smartindent = true,
 	clipboard = 'unnamedplus',
+	laststatus = 2,
 	-- SAVING
 	backup = false,
 	writebackup = false,
@@ -51,11 +52,17 @@ for key, value in pairs(options) do
 	vim.opt[key] = value
 end
 
+
+-- Set '|' for each tab indentation
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
+
+-- TODO: find how to fade inactive windows without plugin TaDaa/vimade
+-- vim.api.nvim_win_set_option(0, 'winhighlight', 'Normal:white')
+
+
 -- Set winbar only for some filetypes.
-vim.opt.laststatus = 3
-vim.cmd [[ highlight WinSeparator guibg=None ]] -- TODO: find how to change to white !
+vim.api.nvim_set_hl(0, 'WinSeparator', { guibg = None })
 
 vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 	callback = function()
