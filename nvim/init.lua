@@ -1,5 +1,5 @@
 require'packer-plugins'
 
 require'globals.options'
-require'globals.remaps'
+require'globals.keymaps'
 require'globals.snippets'
