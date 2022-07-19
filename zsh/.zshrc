@@ -157,6 +157,7 @@ tmux has-session -t Flo || \
 	resize-pane -t 2 -y 5 \; \
 	send-keys 'sudo -i' Enter \; \
 	send-keys 'fsmall' Enter \; \
+	send-keys 'xset r rate 220 50' Enter \; \
 	send-keys 'exit' Enter \; \
 	send-keys 'exit' Enter \; \
 	new-window -c ~/Flo/Dev -n Neovim \; \
@@ -170,5 +171,6 @@ tmux has-session -t Flo || \
 	select-window -t 1 \; \
 	select-pane -t 2 \; \
 	select-pane -t 1 \; \
-# last fsmall is to run custom script to control fan intensity:
+# xset: to set speed of keyboard typing since Gnome Control Center not working w/ i3wm
+# fsmall is to run custom script to control fan intensity:
 # fstop, fsmall, fmedium and ffull.
