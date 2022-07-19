@@ -15,6 +15,12 @@ vim.g.mapleader = ' '
 -- TABS
 key('n', 'H', 'gT', noremap)
 key('n', 'L', 'gt', noremap)
+key('n', 'tt', ':tabnew<CR>', full_options)
+
+
+-- WINDOWS
+key('n', '<leader>v', ':vsplit<CR>', full_options)
+key('n', '<leader>x', ':split<CR>', full_options)
 
 
 -- COPY FROM CURSOR TO END OF LINE
@@ -22,8 +28,9 @@ key('n', 'Y', 'y$', noremap)
 
 
 -- KEEPING IN CENTERED
-key('n', 'n', 'nzzzv', noremap)
-key('n', 'N', 'Nzzzv', noremap)
+key('n', 'n', 'nzzzv', full_options)
+key('n', 'N', 'Nzzzv', full_options)
+key('n', 'G', 'Gzz', full_options)
 
 
 -- NAVIGATE EASILY BETWEEN WINDOWS - using vim-tmux-navigator
@@ -50,7 +57,7 @@ key('n', '<C-j>', ':move .+1<CR>==', full_options)
 key('n', '<C-k>', ':move .-2<CR>==', full_options)
 
 
--- visual mode indent
+-- VISUAL MODE INDENTATION
 key('v', '<', '<gv', full_options)
 key('v', '>', '>gv', full_options)
 
@@ -60,10 +67,6 @@ key('n', '<C-Up>', ':resize +2<CR>', full_options)
 key('n', '<C-Down>', ':resize -2<CR>', full_options)
 key('n', '<C-Left>', ':vertical resize -2<CR>', full_options)
 key('n', '<C-Right>', ':vertical resize +2<CR>', full_options)
-
-
--- KEEP CENTERED
-key('n', 'G', 'Gzz', full_options)
 
 
 -- #############
