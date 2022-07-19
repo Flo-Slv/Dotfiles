@@ -131,8 +131,8 @@ return require'packer'.startup({
 		use 'kshenoy/vim-signature'
 
 		use 'christoomey/vim-tmux-navigator'
-
-		use 'ap/vim-css-color'
+		
+		use 'norcalli/nvim-colorizer.lua'
 	end,
 	config = {
    		git = {
