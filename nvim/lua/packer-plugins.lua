@@ -116,7 +116,7 @@ return require'packer'.startup({
 		-- GIT
 		use 'tpope/vim-fugitive'
 		use 'mbbill/undotree'
-		use 'rhysd/committia.vim'
+		-- use 'rhysd/committia.vim'
 		use 'lewis6991/gitsigns.nvim'
 
 		-- Markdown
@@ -131,7 +131,7 @@ return require'packer'.startup({
 		use 'kshenoy/vim-signature'
 
 		use 'christoomey/vim-tmux-navigator'
-		
+
 		use 'norcalli/nvim-colorizer.lua'
 	end,
 	config = {
