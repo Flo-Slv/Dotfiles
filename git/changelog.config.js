@@ -7,41 +7,41 @@ module.exports = {
 	minMessageLength: 3,
 	questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
 	scopes: [],
-	enableWritingScopes: true, // Feature not yet push
+	enableWritingScopes: true, // Feature not yet push...
 	types: {
 		ci: {
-			description: 'CI related changes',
-			emoji: '🎡',
+			description: 'Continuous Integration related changes',
+			emoji: '',
 			value: 'ci'
 		},
 		docs: {
 			description: 'Documentation only changes',
-			emoji: '✏️',
-			value: 'docs'
+			emoji: '',
+			value: 'doc'
 		},
 		feat: {
 			description: 'A new feature',
-			emoji: '🌞',
-			value: 'feat'
+			emoji: '',
+			value: 'feature'
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '🐛',
+			emoji: '',
 			value: 'fix'
 		},
 		refactor: {
 			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '💡',
+			emoji: '',
 			value: 'refactor'
 		},
 		style: {
 			description: 'Markup, white-space, formatting, missing semi-colons...',
-			emoji: '💄',
+			emoji: '',
 			value: 'style'
 		},
 		test: {
-			description: 'Adding missing tests',
-			emoji: '💍',
+			description: 'Adding tests',
+			emoji: '',
 			value: 'test'
 		},
 		messages: {
