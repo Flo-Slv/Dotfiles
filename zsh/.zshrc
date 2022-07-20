@@ -153,6 +153,9 @@ sudo --validate # First go to /etc/sudoers.d/sudoers and add this line: Defaults
 tmux has-session -t Flo || \
 	tmux -f ~/Flo/Dotfiles/tmux/.tmux.conf new -s Flo -n Terminal \; \
 	split-window -c ~/Flo -h \; \
+	split-window -c ~/Flo -v \; \
+	select-pane -t 3 \; \
+	resize-pane -t 3 -y 15 \; \
 	select-pane -t 1 \; \
 	split-window -c ~/ -v \; \
 	select-pane -t 2 \; \
@@ -171,7 +174,6 @@ tmux has-session -t Flo || \
 	select-pane -t 2 \; \
 	send-keys 'watch sensors' Enter \; \
 	select-window -t 1 \; \
-	select-pane -t 2 \; \
 	select-pane -t 1 \; \
 # xset: to set speed of keyboard typing since Gnome Control Center not working w/ i3wm
 # fsmall is to run custom script to control fan intensity:
