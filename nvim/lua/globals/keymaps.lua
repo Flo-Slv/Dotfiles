@@ -142,6 +142,7 @@ end
 
 key('n', '<leader>df', ':lua vim.lsp.buf.definition()<CR>', full_options)
 key('n', 'K', ':lua vim.lsp.buf.hover()<CR>', full_options)
+key('n', '<leader>err', ':lua vim.diagnostic.open_float()<CR>', full_options)
 
 
 -- #############
