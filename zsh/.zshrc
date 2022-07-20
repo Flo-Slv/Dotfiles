@@ -39,8 +39,6 @@ unalias "......"
 
 
 alias c="clear"
-alias n="nvim"
-alias vim="nvim"
 
 
 # Change directory aliases
@@ -77,6 +75,10 @@ alias ft="fzf-tmux"
 alias ftt="fzf-tmux -p"
 
 
+# BATCAT alias
+alias b='batcat'
+
+
 # MongoDB aliases
 alias ms="sudo systemctl start mongod"
 alias mi="sudo systemctl status mongod"
@@ -104,10 +106,6 @@ alias ss="ssh-add ~/.ssh/id_ed25519"
 alias ui="gitui"
 
 
-# LUA-LANGUAGE-SERVER (sumneko_lua)
-alias luamake=/home/floslv/lua-language-server/3rd/luamake/luamake
-
-
 # Thefuck
 eval $(thefuck --alias)
 
@@ -122,15 +120,17 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 
-# Path to .vimrc
+# Path to .vimrc/init.vim/init.lua
 # export VIMINIT="source ~/Flo/Dotfiles/vim-old/.vimrc"
 # export VIMINIT="source ~/Flo/Dotfiles/nvim-old/init.vim"
 export VIMINIT="source ~/Flo/Dotfiles/nvim/init.lua"
 
 # Set VIM as default editor
-# export VISUAL=vim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+alias n="nvim"
+alias vim="nvim"
 
 
 # Add directory to the PATH
