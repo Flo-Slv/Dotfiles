@@ -40,6 +40,7 @@ unalias "......"
 
 alias c="clear"
 alias n="nvim"
+alias vim="nvim"
 
 
 # Change directory aliases
@@ -62,10 +63,11 @@ alias tmk="tmux kill-session -t"
 
 
 # Git aliases
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gpo="git pull origin"
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gpo='git pull origin'
 
 
 # fzf aliases
@@ -75,7 +77,7 @@ alias ft="fzf-tmux"
 alias ftt="fzf-tmux -p"
 
 
-# MongoDB
+# MongoDB aliases
 alias ms="sudo systemctl start mongod"
 alias mi="sudo systemctl status mongod"
 alias md="sudo systemctl stop mongod"
