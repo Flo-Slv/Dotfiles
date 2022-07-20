@@ -114,6 +114,7 @@ return require'packer'.startup({
 		use 'rcarriga/nvim-notify'
 
 		-- GIT
+		use 'tpope/vim-fugitive'
 		use 'mbbill/undotree'
 		use 'rhysd/committia.vim'
 		use 'lewis6991/gitsigns.nvim'
@@ -122,7 +123,6 @@ return require'packer'.startup({
 		use 'ellisonleao/glow.nvim'
 
 		-- Others
-		use 'tpope/vim-fugitive'
 		use 'tpope/vim-surround'
 		use 'windwp/nvim-autopairs'
 		use 'AndrewRadev/tagalong.vim'
