@@ -88,8 +88,8 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Brave"
 set $ws3 "3: Insomnia"
-set $ws4 "4: Files"
-set $ws5 "5"
+set $ws4 "4: Notion"
+set $ws5 "5: Files"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -175,21 +175,22 @@ assign [class="Insomnia"] $ws3
 for_window [class="Insomnia"] focus
 for_window [class="Insomnia"] fullscreen enable
 
-assign [class="Org.gnome.Nautilus"] $ws4
+assign [class="notion-app-enhanced"] $ws4
+for_window [class="notion-app-enhanced"] focus
+for_window [class="notion-app-enhanced"] fullscreen enable
+
+assign [class="Org.gnome.Nautilus"] $ws5
 for_window [class="Org.gnome.Nautilus"] focus
 
-# assign [class="notion-snap"] $ws4
-# for_window [class="notion-snap"] focus
-# for_window [class="notion-snap"] fullscreen enable
 
 # At startup, launch apps.
 exec --no-startup-id feh --bg-scale ~/Flo/Wallpapers/vim-wp2.jpg
 exec --no-startup-id compton
 exec --no-startup-id kitty
 exec --no-startup-id brave
+exec --no-startup-id notion-app-enhanced
 exec --no-startup-id nautilus
 exec --no-startup-id insomnia
-# exec --no-startup-id notion-snap
 
 # I3 Gaps
 for_window [class="^.*"] border pixel 2
