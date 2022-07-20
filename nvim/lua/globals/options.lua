@@ -56,11 +56,11 @@ end
 -- Set '|' for each tab indentation
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
--- Opacity on non-acitve windows
+-- Opacity on non-active windows  -- TODO: change signcolumn or foldcolumn
 vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
 vim.cmd [[ highlight NonActiveWindows guibg=#2C3043 ]]
 vim.cmd [[ highlight NonActiveWinbar guibg=#2C3043 ]]
--- TODO: change signcolumn or foldcolumn
+
 
 vim.cmd [[
 set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar
@@ -93,9 +93,10 @@ vim.api.nvim_create_autocmd({ 'FileType', 'BufWinEnter', 'BufFilePost' }, {
 			'dbui',
 			'packer',
 			'glowpreview',
-			'gitsigns_head', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup', 'gitsigns_status', 'GitSigns', 'gitSigns', 'gitsignspreview', 'gitsigns_preview', 'gitsigns_popup'
 			'lsp-installer',
+			'gitsigns_head', -- TODO: find filetype: tried 'gitsigns', 'Gitsigns', 'gitsigns.popup', 'gitsigns_status', 'GitSigns', 'gitSigns', 'gitsignspreview', 'gitsigns_preview', 'gitsigns_popup'
 			'lspconfig', -- TODO: find filetype for nvim-lspconfig: tried 'lsp', 'nvim-lspconfig', 'lsp-config'
+			'lspconfig_preview', -- TODO: find filetype for lsp diagnostic: tried 'diagnostic', 'DiagnosticError'
 		}
 
 		local excludes = function()
