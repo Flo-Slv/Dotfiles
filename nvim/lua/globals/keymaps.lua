@@ -117,7 +117,7 @@ end
 function Dotfiles()
 	builtin.git_files(themes.get_dropdown {
 		cwd = '~/Flo/Dotfiles',
-		prompt_title = '⚙️ Dotfiles',
+		prompt_title = ' Dotfiles',
 		hidden = true,
 		previewer = false
 	})
@@ -125,7 +125,7 @@ end
 
 function Help()
 	builtin.help_tags {
-		prompt_title = "ℹ️ Help"
+		prompt_title = '❓ Help'
 	}
 end
 

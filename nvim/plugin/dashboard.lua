@@ -56,19 +56,20 @@ db.custom_center = {
 		end
 	},
 	{
-		icon = '⭐',
+		-- icon = '💠',
+		icon = '🔅',
 		desc = '    Dotfiles',
 		action = function()
 			builtin.git_files(themes.get_dropdown({
 				cwd = '~/Flo/Dotfiles',
-				prompt_title = '⚙️ Dotfiles',
+				prompt_title = ' Dotfiles',
 				hidden = true,
 				previewer = false
 			}))
 		end
 	},
 	{
-		icon = '⚡',
+		icon = '📝',
 		desc = '    New file',
 		action = 'DashboardNewFile'
 	},
@@ -86,7 +87,7 @@ db.custom_center = {
 		desc = '     Help   ',
 		action = function()
 			builtin.help_tags({
-				prompt_title = 'ℹ️ Help'
+				prompt_title = '❓ Help'
 			})
 		end
 	}
