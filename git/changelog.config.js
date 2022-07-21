@@ -16,22 +16,22 @@ module.exports = {
 		},
 		docs: {
 			description: 'Documentation only changes',
-			emoji: '',
+			emoji: '', // Change icons
 			value: 'doc'
 		},
 		feat: {
 			description: 'A new feature',
-			emoji: '',
+			emoji: '', // Change icons
 			value: 'feature'
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '',
+			emoji: '', // Good
 			value: 'fix'
 		},
 		refactor: {
 			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '',
+			emoji: '', // Good
 			value: 'refactor'
 		},
 		style: {
@@ -41,7 +41,7 @@ module.exports = {
 		},
 		test: {
 			description: 'Adding tests',
-			emoji: '',
+			emoji: '', // Good
 			value: 'test'
 		},
 		messages: {
