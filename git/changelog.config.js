@@ -16,32 +16,32 @@ module.exports = {
 		},
 		docs: {
 			description: 'Documentation only changes',
-			emoji: '', // Change icons
-			value: 'doc'
+			emoji: '',
+			value: 'docs'
 		},
 		feat: {
 			description: 'A new feature',
-			emoji: '', // Change icons
-			value: 'feature'
+			emoji: '',
+			value: 'feat'
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '', // Good
+			emoji: '',
 			value: 'fix'
 		},
 		refactor: {
 			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '', // Good
+			emoji: '',
 			value: 'refactor'
 		},
 		style: {
 			description: 'Markup, white-space, formatting, missing semi-colons...',
-			emoji: '', // Good
+			emoji: '',
 			value: 'style'
 		},
 		test: {
 			description: 'Adding tests',
-			emoji: '', // Good
+			emoji: '',
 			value: 'test'
 		},
 		messages: {
