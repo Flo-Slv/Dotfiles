@@ -5,7 +5,7 @@
 
 local vim = vim
 
-	-- DISPLAY
+-- DISPLAY
 local options = {
 	title = true,
 	number = true,
