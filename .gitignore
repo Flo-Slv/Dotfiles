@@ -22,4 +22,4 @@ nvim-lua
 
 zsh/.oh-my-zsh
 
-node_modules/*
+node_modules/
