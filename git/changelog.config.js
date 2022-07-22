@@ -26,7 +26,7 @@ module.exports = {
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '',
+			emoji: '❎',
 			value: 'fix'
 		},
 		refactor: {
