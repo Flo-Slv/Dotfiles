@@ -1,0 +1,19 @@
+{
+	"themes": {
+		"ocean": {
+			"commandName": "bold, cyan",
+			"mainDescription": "",
+			"exampleDescription": "green",
+			"exampleCode": "cyan",
+			"exampleToken": "dim"
+		},
+		"floTheme": {
+			"commandName": "bold, red",
+			"mainDescription": "cyan",
+			"exampleDescription": "yellow",
+			"exampleCode": "green",
+			"exampleToken": "dim"
+		}
+	},
+	"theme": "floTheme"
+}
