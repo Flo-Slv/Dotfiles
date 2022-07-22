@@ -11,37 +11,37 @@ module.exports = {
 	types: {
 		ci: {
 			description: 'Continuous Integration related changes',
-			emoji: ' ➡',
+			emoji: '⬜️',
 			value: 'ci'
 		},
 		docs: {
 			description: 'Documentation only changes',
-			emoji: ' ℹ',
+			emoji: '🟧',
 			value: 'docs'
 		},
 		feat: {
 			description: 'A new feature',
-			emoji: '➕',
+			emoji: '🟦',
 			value: 'feat'
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '🔷',
+			emoji: '🟥',
 			value: 'fix'
 		},
 		refactor: {
 			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '📝',
+			emoji: '🟪',
 			value: 'refactor'
 		},
 		style: {
 			description: 'Markup, white-space, formatting, missing semi-colons...',
-			emoji: ' ✂',
+			emoji: '🟨',
 			value: 'style'
 		},
 		test: {
 			description: 'Adding tests',
-			emoji: '✅',
+			emoji: '🟩',
 			value: 'test'
 		},
 		messages: {
