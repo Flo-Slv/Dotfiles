@@ -31,7 +31,7 @@ module.exports = {
 		},
 		refactor: {
 			description: 'A code change that neither fixes a bug or adds a feature',
-			emoji: '',
+			emoji: '📝',
 			value: 'refactor'
 		},
 		style: {
