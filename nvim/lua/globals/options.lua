@@ -29,7 +29,7 @@ local options = {
 	splitright = true,
 	smartindent = true,
 	clipboard = 'unnamedplus',
-	laststatus = 2, -- set to 3 for an unique bar
+	laststatus = 3, -- set to 2 for an multiple lualine bar
 	termguicolors = true,
 	-- SAVING
 	backup = false,
