@@ -29,7 +29,7 @@ local options = {
 	splitright = true,
 	smartindent = true,
 	clipboard = 'unnamedplus',
-	laststatus = 3,
+	laststatus = 2, -- set to 3 for an unique bar
 	termguicolors = true,
 	-- SAVING
 	backup = false,
@@ -56,15 +56,16 @@ end
 -- Set '|' for each tab indentation
 vim.cmd [[ set list lcs=tab:\|\ ]]
 
+-- TODO: find how to improve opacity between active and non active windows !
 -- Opacity on non-active windows  -- TODO: change signcolumn or foldcolumn
-vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
-vim.cmd [[ highlight NonActiveWindows guibg=#2C3043 ]]
-vim.cmd [[ highlight NonActiveWinbar guibg=#2C3043 ]]
+-- vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
+-- vim.cmd [[ highlight NonActiveWindows guibg=#2C3043 ]]
+-- vim.cmd [[ highlight NonActiveWinbar guibg=#2C3043 ]]
 
 
-vim.cmd [[
-set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar
-]]
+-- vim.cmd [[
+-- set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar
+-- ]]
 
 -- local group = vim.api.nvim_create_augroup('change_color', { clear = true })
 -- vim.api.nvim_create_autocmd({ 'VimEnter', 'BufEnter', 'BufWinEnter' }, {
