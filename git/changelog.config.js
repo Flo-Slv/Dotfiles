@@ -11,7 +11,7 @@ module.exports = {
 	types: {
 		ci: {
 			description: 'Continuous Integration related changes',
-			emoji: '➡',
+			emoji: ' ➡',
 			value: 'ci'
 		},
 		docs: {
@@ -36,7 +36,7 @@ module.exports = {
 		},
 		style: {
 			description: 'Markup, white-space, formatting, missing semi-colons...',
-			emoji: '',
+			emoji: ' ✂',
 			value: 'style'
 		},
 		test: {
