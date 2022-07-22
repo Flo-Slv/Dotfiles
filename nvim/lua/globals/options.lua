@@ -62,10 +62,11 @@ vim.cmd [[ set list lcs=tab:\|\ ]]
 vim.cmd [[ highlight ActiveWindows guibg=#24283b ]]
 vim.cmd [[ highlight NonActiveWindows guibg=#2C3043 ]]
 vim.cmd [[ highlight NonActiveWinbar guibg=#2C3043 ]]
+vim.cmd [[ highlight NonActiveStatusLine guibg=#2C3043 ]]
 
 
 vim.cmd [[
-set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar
+set winhighlight=Normal:ActiveWindows,NormalNC:NonActiveWindows,WinBarNC:NonActiveWinbar,StatusLineNC:NonActiveStatusLine
 ]]
 
 -- local group = vim.api.nvim_create_augroup('change_color', { clear = true })
