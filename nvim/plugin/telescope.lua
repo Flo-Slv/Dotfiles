@@ -25,10 +25,15 @@ require'neoclip'.setup()
 
 
 -- UI
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg='#3B4252' })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg='#3B4252' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg='#3B4252' })
-vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg='#3B4252' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg='#CCCCCC' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg='#CCCCCC' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg='#CCCCCC' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg='#CCCCCC' })
+
+-- vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg='#3B4252' })
+-- vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg='#3B4252' })
+-- vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg='#3B4252' })
+-- vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg='#3B4252' })
 
 vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { bg='#24283b' })
 vim.api.nvim_set_hl(0, 'TelescopeResultsNormal', { bg='#24283b' })
