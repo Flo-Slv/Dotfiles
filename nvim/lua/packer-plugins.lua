@@ -116,7 +116,6 @@ return require'packer'.startup({
 		-- GIT
 		use 'tpope/vim-fugitive'
 		use 'mbbill/undotree'
-		-- use 'rhysd/committia.vim'
 		use 'lewis6991/gitsigns.nvim'
 
 		-- Markdown
