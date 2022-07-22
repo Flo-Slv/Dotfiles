@@ -1,7 +1,7 @@
 // For git-cz
 module.exports = {
 	disableEmoji: false,
-	format: '{type}{scope}: {emoji}{subject}',
+	format: '{emoji} {type}{scope}: {subject}',
 	list: ['test', 'feat', 'fix', 'docs', 'refactor', 'style', 'ci'],
 	maxMessageLength: 64,
 	minMessageLength: 3,
