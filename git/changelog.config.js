@@ -5,7 +5,7 @@ module.exports = {
 	list: ['test', 'feat', 'fix', 'docs', 'refactor', 'style', 'ci'],
 	maxMessageLength: 64,
 	minMessageLength: 3,
-	questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
+	questions: ['type', 'scope', 'subject', 'body', 'issues', 'lerna'],
 	scopes: [],
 	enableWritingScopes: true, // Feature not yet push...
 	types: {
@@ -49,7 +49,6 @@ module.exports = {
 			customScope: 'Select the scope this component affects:',
 			subject: 'Write a short, imperative mood description of the change:\n',
 			body: 'Provide a longer description of the change:\n ',
-			breaking: 'List any breaking changes:\n',
 			footer: 'Issues this commit closes, e.g #123:',
 			confirmCommit: 'The packages that this commit has affected\n'
 		}
