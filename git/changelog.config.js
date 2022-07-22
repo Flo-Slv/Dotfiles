@@ -1,7 +1,7 @@
 // For git-cz
 module.exports = {
 	disableEmoji: false,
-	format: '{emoji} {type}{scope}: {subject}',
+	format: '{emoji}{type}{scope}: {subject}',
 	list: ['test', 'feat', 'fix', 'docs', 'refactor', 'style', 'ci'],
 	maxMessageLength: 64,
 	minMessageLength: 3,
@@ -11,7 +11,7 @@ module.exports = {
 	types: {
 		ci: {
 			description: 'Continuous Integration related changes',
-			emoji: '',
+			emoji: '➡',
 			value: 'ci'
 		},
 		docs: {
