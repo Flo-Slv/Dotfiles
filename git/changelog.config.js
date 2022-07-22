@@ -16,7 +16,7 @@ module.exports = {
 		},
 		docs: {
 			description: 'Documentation only changes',
-			emoji: 'ℹ',
+			emoji: ' ℹ',
 			value: 'docs'
 		},
 		feat: {
@@ -26,7 +26,7 @@ module.exports = {
 		},
 		fix: {
 			description: 'A bug fix',
-			emoji: '❎',
+			emoji: '🔷',
 			value: 'fix'
 		},
 		refactor: {
