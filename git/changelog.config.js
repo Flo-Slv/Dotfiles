@@ -41,7 +41,7 @@ module.exports = {
 		},
 		test: {
 			description: 'Adding tests',
-			emoji: '',
+			emoji: '✅',
 			value: 'test'
 		},
 		messages: {
