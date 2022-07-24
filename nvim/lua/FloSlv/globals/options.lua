@@ -1,6 +1,8 @@
 -- ###########
 -- # OPTIONS #
 -- ###########
+--
+print('options')
 
 
 local vim = vim
@@ -35,7 +37,7 @@ local options = {
 	backup = false,
 	writebackup = false,
 	swapfile = false,
-	undodir = vim.fn.expand('~') .. '/Flo/Dotfiles/nvim/lua/undodir',
+	undodir = vim.fn.expand('~') .. '/Flo/Dotfiles/nvim/lua/FloSlv/undodir',
 	undofile = true,
 	undolevels = 500,
 	-- SEARCH

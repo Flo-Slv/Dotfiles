@@ -9,3 +9,5 @@
 -- end
 
 vim.cmd [[ colorscheme tokyonight ]]
+
+print('colorscheme plugin')

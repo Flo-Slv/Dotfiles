@@ -3,7 +3,7 @@ local snip = ls.snippet
 local func = ls.function_node
 
 local date = function ()
-	return { os.date('%d-%m-%Y')}
+	return { os.date('%d-%m-%Y') }
 end
 
 -- Snippets
@@ -20,4 +20,3 @@ ls.add_snippets(nil, {
 		)
 	}
 })
-

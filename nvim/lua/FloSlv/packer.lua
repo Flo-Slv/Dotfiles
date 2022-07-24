@@ -39,6 +39,7 @@ vim.cmd [[
 	augroup end
 ]]
 
+print('packer !')
 
 -- Plugins
 return require'packer'.startup({

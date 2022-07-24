@@ -11,6 +11,6 @@ vim.cmd [[
 
 vim.g.db_ui_disable_mappings = 1
 vim.g.db_ui_auto_execute_table_helpers = 1
-vim.g.db_ui_save_location = '~/Flo/Dotfiles/nvim/lua/db'
+vim.g.db_ui_save_location = '~/Flo/Dotfiles/nvim/lua/FloSlv/db'
 vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_winwidth = 30

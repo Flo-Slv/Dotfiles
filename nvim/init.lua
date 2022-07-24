@@ -1,5 +1,7 @@
-require'packer-plugins'
+require'packer'
 
-require'globals.options'
-require'globals.keymaps'
-require'globals.snippets'
+require'FloSlv.globals.options'
+require'FloSlv.globals.keymaps'
+require'FloSlv.globals.snippets'
+
+print('init.lua')
