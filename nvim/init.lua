@@ -1,4 +1,4 @@
-require'packer'
+require'FloSlv.packer'
 
 require'FloSlv.globals.options'
 require'FloSlv.globals.keymaps'

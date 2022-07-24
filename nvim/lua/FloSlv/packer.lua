@@ -35,7 +35,7 @@ end
 vim.cmd [[
 	augroup packer_reload
 		autocmd!
-		autocmd BufWritePost packer-plugins.lua source <afile> | PackerSync
+		autocmd BufWritePost packer.lua source <afile> | PackerSync
 	augroup end
 ]]
 
