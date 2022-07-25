@@ -54,7 +54,20 @@ Next step is to create an installation script to automate this process.<br><br>
 - [Building](https://github.com/Flo-Slv/Dotfiles/blob/master/tmux/tmux3.4-install.md) TMUX 3.4 from sources on Ubuntu 20.04 LTS
 <br>
 
-### VIM-old
+### NEOVIM with only lua
+- [README.md](https://github.com/Flo-Slv/Dotfiles/tree/master/nvim)
+- [init.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.lua)
+- [packer-plugins.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/packer-plugins.lua)
+- [options.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/options.lua)
+- [remaps.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/remaps.lua)
+<br>
+
+### GITUI
+- [key_bindings.ron](https://github.com/Flo-Slv/Dotfiles/blob/master/gitui/key_bindings.ron)
+- [theme.ron](https://github.com/Flo-Slv/Dotfiles/blob/master/gitui/theme.ron)
+<br>
+
+### VIM-old !OLD CONFIG!
 - [.vimrc](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vimrc)
 - [html.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/html.skel)
 - [css.skel](https://github.com/Flo-Slv/Dotfiles/blob/master/vim-old/.vim/css.skel)
@@ -62,16 +75,8 @@ Next step is to create an installation script to automate this process.<br><br>
 - [My VIM story](https://github.com/Flo-Slv/Dotfiles/tree/master/vim-old)
 <br>
 
-### NEOVIM-old with vimscript and lua
+### NEOVIM-old with both vimscript and lua !OLD CONFIG!
 - [init.vim](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim-old/init.vim)
-<br>
-
-### NEOVIM with only lua
-- [README.md](https://github.com/Flo-Slv/Dotfiles/tree/master/nvim)
-- [init.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/init.lua)
-- [packer-plugins.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/packer-plugins.lua)
-- [options.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/options.lua)
-- [remaps.lua](https://github.com/Flo-Slv/Dotfiles/blob/master/nvim/lua/globals/remaps.lua)
 <br>
 
 ---
