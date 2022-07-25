@@ -58,7 +58,7 @@ wget https://raw.githubusercontent.com/Flo-Slv/Dotfiles/master/tmux/.tmux.conf
 
 wget https://raw.githubusercontent.com/Flo-Slv/Dotfiles/master/tmux/.tmux-powerlinerc
 
-wget -P ~/.tmux/tmux-powerline-custom-themes https://raw.githubusercontent.com/Flo-Slv/Dotfiles/master/tmux/flo-theme.sh
+wget -P ~/.tmux/tmux-powerline-custom-themes https://github.com/Flo-Slv/Dotfiles/blob/master/tmux/.tmux/tmux-powerline-custom-themes/flo-theme.sh
 ```
 
 <br>8. Open .tmux.conf, install plugins and reload TMUX.<br>
