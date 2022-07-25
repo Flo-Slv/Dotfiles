@@ -1,8 +1,6 @@
 -- ###########
 -- # OPTIONS #
 -- ###########
---
-print('options')
 
 
 local vim = vim
