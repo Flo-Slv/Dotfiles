@@ -1,8 +1,6 @@
 -- ###########
 -- # KEYMAPS #
 -- ###########
---
-print('keymap')
 
 
 local key = vim.keymap.set
