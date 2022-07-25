@@ -42,6 +42,10 @@ Next step is to create an installation script to automate this process.<br><br>
 - [Install](https://github.com/Flo-Slv/Dotfiles/tree/master/zsh) oh-my-zsh
 <br>
 
+### TERMINAL
+- [kitty.conf](https://github.com/Flo-Slv/Dotfiles/blob/master/terminal/Kitty/kitty.conf)
+<br>
+
 ### TMUX
 - [.tmux.conf](https://github.com/Flo-Slv/Dotfiles/blob/master/tmux/.tmux.conf)
 - [.tmux-powerlinerc](https://github.com/Flo-Slv/Dotfiles/blob/master/tmux/.tmux-powerlinerc)
