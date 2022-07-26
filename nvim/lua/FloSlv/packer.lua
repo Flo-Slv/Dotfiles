@@ -14,7 +14,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
--- PackerSync every time we save packer-plugins.lua
+-- PackerSync every time we save packer.lua
 -- local buf_name = vim.api.nvim_buf_get_name(0)
 -- local path = {
 -- 	'/home/floslv/Flo/Dotfiles/nvim/lua/packer-plugins.lua',
