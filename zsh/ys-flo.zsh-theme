@@ -4,7 +4,7 @@
 
 # by Flo Slv
 
-# ~/Flo/Dotfiles/zsh/.oh-my-zsh/custom/theme/ys-flo.zsh-theme
+# ~/Flo/Dotfiles/zsh/.oh-my-zsh/custom/themes/ys-flo.zsh-theme
 
 
 # Clean, simple, compatible and meaningful.
