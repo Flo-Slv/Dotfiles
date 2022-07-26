@@ -1,6 +1,6 @@
 vim.cmd [[
 	if has('persistent_undo')
-		let target_path = expand('~/Flo/Dotfiles/nvim/lua/undodir')
+		let target_path = expand('~/Flo/Dotfiles/nvim/lua/FloSlv/undodir')
 
 		" If the location does not exist,
 		" create the directory and any parent directories.
