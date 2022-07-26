@@ -6,6 +6,8 @@
 
 ! ~/Flo/Dotfiles/i3am/Rofi/.Xresources
 
+! .Xresources is for Rofi version <= 1.6.1
+
 
 ! If changes, do not forget to relaunch Rofi with:
 ! xrdb .Xresources
