@@ -3,7 +3,7 @@
 -- 	return
 -- end
 
-require'luasnip.loaders.from_vscode'.lazy_load({ paths = { './lua/globals/snippets.lua' } })
+require'luasnip.loaders.from_vscode'.lazy_load({ paths = { './lua/FloSlv/globals/snippets.lua' } })
 
 local ls = require'luasnip'
 local types = require'luasnip.util.types'
