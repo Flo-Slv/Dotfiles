@@ -100,6 +100,7 @@ alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
 # Add Github key to SSH agent.
 alias ss="ssh-add ~/.ssh/id_ed25519"
+alias sa="eval `ssh-agent`"
 
 
 # Launch gitui app.
